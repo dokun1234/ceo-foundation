@@ -954,10 +954,57 @@
   }
 
   /* --------------------------------------------------------------------------
+     Footer Social Media Links (Configured via CEO_CONFIG.social or Admin Studio)
+  -------------------------------------------------------------------------- */
+  const SOCIAL_ICONS = {
+    facebook: {
+      label: 'Facebook',
+      path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'
+    },
+    instagram: {
+      label: 'Instagram',
+      path: 'M16 4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4zm-4 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.5-6.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'
+    },
+    tiktok: {
+      label: 'TikTok',
+      path: 'M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.7V16a8 8 0 1 1-8-8c.7 0 1.3.1 2 .3v3.7z'
+    },
+    x: {
+      label: 'X (Twitter)',
+      path: 'M4 4l6.5 7.5L4 20h2.5l5.2-6.1L16 20h4l-7-8.1L19.5 4H17l-4.7 5.5L8 4H4z'
+    },
+    linkedin: {
+      label: 'LinkedIn',
+      path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z'
+    },
+    youtube: {
+      label: 'YouTube',
+      path: 'M22.5 6.2a2.8 2.8 0 0 0-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2A29.4 29.4 0 0 0 1 12a29.4 29.4 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2 29.4 29.4 0 0 0 .5-5.8 29.4 29.4 0 0 0-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z'
+    }
+  };
+
+  function renderSocialLinks() {
+    const wrap = document.getElementById('footer-social');
+    if (!wrap) return;
+    const social = (window.CEO_CONFIG && window.CEO_CONFIG.social) || {};
+    const links = Object.keys(SOCIAL_ICONS)
+      .filter((k) => social[k] && /^https?:\/\//i.test(social[k]))
+      .map((k) => {
+        const item = SOCIAL_ICONS[k];
+        return `<a href="${social[k]}" target="_blank" rel="noopener" class="footer__social-link" aria-label="C.E.O Foundation on ${item.label}" title="${item.label}">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${item.path}"/></svg>
+        </a>`;
+      });
+    wrap.innerHTML = links.join('');
+    wrap.style.display = links.length ? 'flex' : 'none';
+  }
+
+  /* --------------------------------------------------------------------------
      Initialize All Modules on DOMContentLoaded
   -------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
     renderStaticCollections();
+    renderSocialLinks();
     initNavigation();
     initLightboxChrome();
     initGallery();

@@ -841,6 +841,8 @@
     setVal('cfg-email', cfg.email);
     setVal('cfg-mpesa', cfg.mpesaPaybill);
     setVal('cfg-google-form', cfg.googleFormUrl);
+    const socialCfg = cfg.social || {};
+    ['facebook', 'instagram', 'tiktok', 'x', 'linkedin', 'youtube'].forEach((k) => setVal(`cfg-social-${k}`, socialCfg[k]));
 
     const settingsForm = document.getElementById('admin-settings-form');
     if (settingsForm) {
@@ -855,6 +857,11 @@
         state.config.email = document.getElementById('cfg-email').value.trim();
         state.config.mpesaPaybill = document.getElementById('cfg-mpesa').value.trim();
         state.config.googleFormUrl = document.getElementById('cfg-google-form').value.trim();
+        state.config.social = {};
+        ['facebook', 'instagram', 'tiktok', 'x', 'linkedin', 'youtube'].forEach((k) => {
+          const el = document.getElementById(`cfg-social-${k}`);
+          state.config.social[k] = el ? el.value.trim() : '';
+        });
 
         markChanged();
         showToast('Organisation contacts & M-Pesa settings saved!');

@@ -25,6 +25,7 @@ window.CEO_CONFIG = {
   "googleFormUrl": "",
   "mpesaPaybill": "",
   "socialHandle": "@CEO Foundation",
+  "social": { "facebook": "", "instagram": "", "tiktok": "", "x": "", "linkedin": "", "youtube": "" },
   "docs": {
     "orgProfile": "assets/docs/CEO_Foundation_Organisation_Profile.pdf",
     "leadershipProfiles": "assets/docs/CEO_Foundation_Leadership_Profiles.pdf"
