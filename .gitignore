@@ -5,4 +5,5 @@ device-diag.html
 package.json
 package-lock.json
 BRIEF.md
+push-to-github.bat
 .env
