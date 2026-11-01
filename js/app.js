@@ -146,7 +146,7 @@
     return `
       <article class="program-card reveal" id="${prog.id}">
         <div class="program-card__media">
-          <img src="${prog.image}" alt="${prog.title}" loading="lazy" />
+          <img src="${prog.image}" alt="${prog.title}" loading="lazy" decoding="async" />
           <span class="program-card__tag">${prog.tag}</span>
         </div>
         <div class="program-card__body">
@@ -245,7 +245,7 @@
           (leader) => `
         <a href="leadership.html?leader=${encodeURIComponent(leader.id)}" class="leader-card reveal" aria-label="Read full leadership profile of ${leader.name}">
           <div class="leader-card__portrait">
-            <img src="${leader.photo}" alt="${leader.name} - ${leader.role}" loading="lazy" />
+            <img src="${leader.photo}" alt="${leader.name} - ${leader.role}" loading="lazy" decoding="async" />
             <div class="leader-card__role-pill">
               <span class="leader-card__role-badge">${leader.shortRole}</span>
             </div>
@@ -359,7 +359,7 @@
         .map(
           (item, index) => `
         <figure class="gallery-item ${category === 'all' && item.featured && index === 0 ? 'gallery-item--featured' : ''}" data-gallery-id="${item.id}" tabindex="0" role="button" aria-label="View full photo: ${item.title}">
-          <img src="${item.src}" alt="${item.title}" loading="lazy" />
+          <img src="${item.src}" alt="${item.title}" loading="lazy" decoding="async" />
           <span class="gallery-item__zoom" aria-hidden="true">${ICONS.zoom}</span>
           <figcaption class="gallery-item__overlay">
             <span class="gallery-item__badge">${item.badge}</span>
@@ -423,7 +423,7 @@
           (leader) => `
         <article class="poster-card reveal" data-poster-src="${leader.poster}" data-poster-name="${leader.name}" data-poster-role="${leader.role}" tabindex="0" role="button" aria-label="View official leadership poster for ${leader.name}">
           <div class="poster-card__media">
-            <img src="${leader.poster}" alt="${leader.name} official C.E.O Foundation poster" loading="lazy" />
+            <img src="${leader.poster}" alt="${leader.name} official C.E.O Foundation poster" loading="lazy" decoding="async" />
           </div>
           <div class="poster-card__bar">
             <div>
@@ -466,7 +466,7 @@
           <div class="leader-card__portrait">
             ${
               leader.photo
-                ? `<img src="${leader.photo}" alt="${leader.name} - ${leader.role}" loading="lazy" />`
+                ? `<img src="${leader.photo}" alt="${leader.name} - ${leader.role}" loading="lazy" decoding="async" />`
                 : `<div class="leader-card__monogram">
                      <div class="leader-card__monogram-circle">${leader.initials}</div>
                      <img class="leader-card__monogram-logo" src="assets/images/logo-icon.png" alt="" aria-hidden="true" />
