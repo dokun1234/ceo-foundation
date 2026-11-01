@@ -759,12 +759,12 @@
           type="password"
           id="admin-pin-input"
           class="admin-input"
-          placeholder="Enter Passcode (Default: ceo2026)"
+          placeholder="Enter Executive Passcode"
           style="text-align: center; font-weight: 700; letter-spacing: 0.08em;"
           required
         />
         <p id="admin-pin-error" style="color: var(--red-600); font-size: 0.8rem; font-weight: 700; display: none;">
-          Incorrect passcode. Default passcode is: ceo2026
+          Incorrect passcode. Please contact the C.E.O Foundation Executive Desk.
         </p>
         <button type="submit" class="admin-btn admin-btn--red" style="justify-content: center; padding: 12px;">
           Unlock Admin Dashboard
@@ -1003,9 +1003,9 @@
               <small>Stored securely in this browser. Create for free at GitHub &rarr; Settings &rarr; Developer Settings &rarr; Fine-grained tokens (grant "Contents: Read &amp; Write" on the website repo).</small>
             </div>
             <div class="admin-field">
-              <label for="cfg-admin-pin">Admin Dashboard Passcode</label>
-              <input type="text" id="cfg-admin-pin" class="admin-input" value="ceo2026" />
-              <small>Passcode required to unlock this Admin Studio (default: <code>ceo2026</code>).</small>
+              <label for="cfg-admin-pin">Change Admin Dashboard Passcode (Optional)</label>
+              <input type="password" id="cfg-admin-pin" class="admin-input" placeholder="Leave blank to keep current passcode, or type a new one" />
+              <small>Encrypted with SHA-256 so your plain-text password is never exposed in code, and syncs across all devices when published.</small>
             </div>
             <div class="admin-field" style="justify-content: flex-end; align-items: flex-end;">
               <button type="submit" class="admin-btn admin-btn--navy">

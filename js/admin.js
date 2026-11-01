@@ -111,8 +111,20 @@
   }
 
   /* --------------------------------------------------------------------------
-     Passcode Lock Screen
+     Passcode Lock Screen (SHA-256 Hashed & Synced via CEO_CONFIG.adminPassHash)
   -------------------------------------------------------------------------- */
+  // Default SHA-256 hash for "ceo2026"
+  const DEFAULT_PASS_HASH = '969492a3576186258380a0f988565d827298553b82d63557a4971c1b86095857';
+
+  async function sha256Hex(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(hashBuffer))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
   function getGhSettings() {
     try {
       return JSON.parse(localStorage.getItem(GH_SETTINGS_KEY) || '{}');
@@ -138,18 +150,20 @@
       return;
     }
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const gh = getGhSettings();
-      const expectedPin = (gh.pin || 'ceo2026').trim();
+      const activeHash = state.config.adminPassHash || gh.passHash || DEFAULT_PASS_HASH;
       const entered = (input.value || '').trim();
-      if (entered === expectedPin || entered.toLowerCase() === 'ceo2026') {
+      const enteredHash = await sha256Hex(entered);
+
+      if (enteredHash === activeHash) {
         sessionStorage.setItem(SESSION_UNLOCK_KEY, '1');
         lock.classList.add('unlocked');
         if (err) err.style.display = 'none';
       } else {
         if (err) {
-          err.textContent = `Incorrect passcode. Default passcode is: ${expectedPin}`;
+          err.textContent = 'Incorrect passcode. Please contact the C.E.O Foundation Executive Desk.';
           err.style.display = 'block';
         }
       }
@@ -843,19 +857,34 @@
     setVal('gh-repo', gh.repo || 'dokun1234/ceo-foundation');
     setVal('gh-branch', gh.branch || 'main');
     setVal('gh-token', gh.token || '');
-    setVal('cfg-admin-pin', gh.pin || 'ceo2026');
+    setVal('cfg-admin-pin', '');
 
     const ghForm = document.getElementById('admin-github-form');
     if (ghForm) {
-      ghForm.addEventListener('submit', (e) => {
+      ghForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const newPin = document.getElementById('cfg-admin-pin').value.trim();
+        let passHash = state.config.adminPassHash || gh.passHash || DEFAULT_PASS_HASH;
+
+        if (newPin) {
+          passHash = await sha256Hex(newPin);
+          state.config.adminPassHash = passHash;
+          document.getElementById('cfg-admin-pin').value = '';
+          markChanged();
+        }
+
         saveGhSettings({
           repo: document.getElementById('gh-repo').value.trim(),
           branch: document.getElementById('gh-branch').value.trim() || 'main',
           token: document.getElementById('gh-token').value.trim(),
-          pin: document.getElementById('cfg-admin-pin').value.trim() || 'ceo2026'
+          passHash
         });
-        showToast('Cloud Auto-Publish & Passcode settings saved!');
+
+        showToast(
+          newPin
+            ? 'New passcode encrypted (SHA-256) & saved! Click "Save & Publish Changes" at the top to apply it across all devices.'
+            : 'Cloud Auto-Publish settings saved!'
+        );
       });
     }
 
