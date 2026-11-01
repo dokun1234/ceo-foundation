@@ -144,7 +144,7 @@ window.CEO_DATA = {
         "Mental wellbeing dialogues",
         "Skills & talent discovery"
       ],
-      "image": "assets/images/outreach/learning-engagement.jpg",
+      "image": "assets/images/outreach/learning-engagement.webp",
       "caption": "Interactive youth mentorship session encouraging personal growth, confidence, and positive values.",
       "imageW": 1536,
       "imageH": 1023
@@ -160,7 +160,7 @@ window.CEO_DATA = {
         "Public speaking & confidence",
         "Peer leadership"
       ],
-      "image": "assets/images/outreach/bethel-home-team.jpg",
+      "image": "assets/images/outreach/bethel-home-team.webp",
       "caption": "C.E.O executive and field leaders coordinating outreach logistics at Bethel Children's Home in Ruiru.",
       "imageW": 1536,
       "imageH": 1025
@@ -176,7 +176,7 @@ window.CEO_DATA = {
         "Food & sanitary kit drives",
         "Community outreach"
       ],
-      "image": "assets/images/outreach/hands-on-meal-service.jpg",
+      "image": "assets/images/outreach/hands-on-meal-service.webp",
       "caption": "Mentors serving hot nutritious meals with warmth and dignity during a community children's welfare visit.",
       "imageW": 1536,
       "imageH": 1045
@@ -192,7 +192,7 @@ window.CEO_DATA = {
         "Empowered youth network",
         "Lasting social change"
       ],
-      "image": "assets/images/outreach/dignity-hygiene-drive.jpg",
+      "image": "assets/images/outreach/dignity-hygiene-drive.webp",
       "caption": "Delivering girl-child sanitary hygiene kits that restore confidence, dignity, and uninterrupted schooling.",
       "imageW": 1536,
       "imageH": 1052
@@ -206,7 +206,7 @@ window.CEO_DATA = {
       "title": "Youth Mentorship & Empowerment",
       "description": "We organise structured mentorship activities that encourage young people, build self-confidence, instil positive values and help them recognise their potential.",
       "tag": "Core Pillar 01",
-      "image": "assets/images/outreach/learning-engagement.jpg",
+      "image": "assets/images/outreach/learning-engagement.webp",
       "imageW": 1536,
       "imageH": 1023,
       "fieldCaption": "Interactive mentorship circle encouraging young people to articulate goals and build confidence.",
@@ -223,7 +223,7 @@ window.CEO_DATA = {
       "title": "Children's Welfare & Care",
       "description": "We organise visits and practical support initiatives for children's homes and vulnerable groups, providing encouragement, shared meals, love and essential supplies.",
       "tag": "Core Pillar 02",
-      "image": "assets/images/outreach/hands-on-meal-service.jpg",
+      "image": "assets/images/outreach/hands-on-meal-service.webp",
       "imageW": 1536,
       "imageH": 1045,
       "fieldCaption": "C.E.O mentors serving hot nutritious meals side by side with children during a home outreach visit.",
@@ -240,7 +240,7 @@ window.CEO_DATA = {
       "title": "Mental Health Awareness",
       "description": "We promote stigma-free conversations, safe spaces and awareness around youth mental wellbeing, resilience and appropriate psychosocial support.",
       "tag": "Core Pillar 03",
-      "image": "assets/images/outreach/mentors-service-action.jpg",
+      "image": "assets/images/outreach/mentors-service-action.webp",
       "imageW": 1536,
       "imageH": 898,
       "fieldCaption": "Youth mentors mobilising peer wellness conversations and safe-space psychosocial support.",
@@ -257,7 +257,7 @@ window.CEO_DATA = {
       "title": "Community Outreach & Girl-Child Dignity",
       "description": "We mobilise members and resources to respond to identified community needs, delivering food support, sanitary hygiene kits and humanitarian assistance.",
       "tag": "Core Pillar 04",
-      "image": "assets/images/outreach/dignity-hygiene-drive.jpg",
+      "image": "assets/images/outreach/dignity-hygiene-drive.webp",
       "imageW": 1536,
       "imageH": 1052,
       "fieldCaption": "Distribution of essential sanitary hygiene packages to young girls, protecting dignity and school attendance.",
@@ -274,7 +274,7 @@ window.CEO_DATA = {
       "title": "Leadership Development",
       "description": "Members are entrusted with real opportunities to take responsibility, communicate vision, plan outreach logistics and lead teams with integrity.",
       "tag": "Core Pillar 05",
-      "image": "assets/images/outreach/bethel-home-team.jpg",
+      "image": "assets/images/outreach/bethel-home-team.webp",
       "imageW": 1536,
       "imageH": 1025,
       "fieldCaption": "Executive and field leadership team coordinating operations at Bethel Children's Home in Ruiru.",
@@ -291,7 +291,7 @@ window.CEO_DATA = {
       "title": "Education, Skills & Networking",
       "description": "We foster continuous learning through discussions, skills-building workshops and purposeful networking where young changemakers connect and grow together.",
       "tag": "Core Pillar 06",
-      "image": "assets/images/outreach/shared-care-meal.jpg",
+      "image": "assets/images/outreach/shared-care-meal.webp",
       "imageW": 691,
       "imageH": 462,
       "fieldCaption": "Sitting together in genuine fellowship, turning shared service into lifelong peer mentorship networks.",
@@ -317,7 +317,7 @@ window.CEO_DATA = {
   "gallery": [
     {
       "id": "gal-1",
-      "src": "assets/images/outreach/hero-children-community.jpg",
+      "src": "assets/images/outreach/hero-children-community.webp",
       "w": 1536,
       "h": 1023,
       "title": "Empowering Dreams, Shaping Destinies",
@@ -328,7 +328,7 @@ window.CEO_DATA = {
     },
     {
       "id": "gal-2",
-      "src": "assets/images/outreach/hands-on-meal-service.jpg",
+      "src": "assets/images/outreach/hands-on-meal-service.webp",
       "w": 1536,
       "h": 1045,
       "title": "Hands-On Service & Nourishment",
@@ -338,7 +338,7 @@ window.CEO_DATA = {
     },
     {
       "id": "gal-3",
-      "src": "assets/images/outreach/dignity-hygiene-drive.jpg",
+      "src": "assets/images/outreach/dignity-hygiene-drive.webp",
       "w": 1536,
       "h": 1052,
       "title": "Practical Support & Girl-Child Dignity",
@@ -348,7 +348,7 @@ window.CEO_DATA = {
     },
     {
       "id": "gal-4",
-      "src": "assets/images/outreach/shared-care-meal.jpg",
+      "src": "assets/images/outreach/shared-care-meal.webp",
       "w": 691,
       "h": 462,
       "title": "Shared Care & Human Connection",
@@ -358,7 +358,7 @@ window.CEO_DATA = {
     },
     {
       "id": "gal-5",
-      "src": "assets/images/outreach/learning-engagement.jpg",
+      "src": "assets/images/outreach/learning-engagement.webp",
       "w": 1536,
       "h": 1023,
       "title": "Learning & Community Engagement",
@@ -368,7 +368,7 @@ window.CEO_DATA = {
     },
     {
       "id": "gal-6",
-      "src": "assets/images/outreach/mentors-service-action.jpg",
+      "src": "assets/images/outreach/mentors-service-action.webp",
       "w": 1536,
       "h": 898,
       "title": "Participation Turns Values Into Impact",
@@ -378,7 +378,7 @@ window.CEO_DATA = {
     },
     {
       "id": "gal-7",
-      "src": "assets/images/outreach/bethel-home-team.jpg",
+      "src": "assets/images/outreach/bethel-home-team.webp",
       "w": 1536,
       "h": 1025,
       "title": "Outreach Team at Bethel Children's Home, Ruiru",
@@ -395,8 +395,8 @@ window.CEO_DATA = {
       "role": "CEO, Founder & President",
       "shortRole": "Founder & President",
       "discipline": "BSc. Economics (in progress) · Public Speaker & Mentor",
-      "photo": "assets/images/leaders/otieno-collins-junior.jpg",
-      "poster": "assets/images/posters/poster-otieno-collins-junior.jpg",
+      "photo": "assets/images/leaders/otieno-collins-junior.webp",
+      "poster": "assets/images/posters/poster-otieno-collins-junior.webp",
       "hasFullProfile": true,
       "credentials": [
         "BSc. Economics (in progress)",
@@ -432,8 +432,8 @@ window.CEO_DATA = {
       "role": "Vice President (Deputy President)",
       "shortRole": "Vice President",
       "discipline": "BSc. Clinical Medicine (JKUAT) · Mental Health Advocate",
-      "photo": "assets/images/leaders/otieno-yvonne-aluoch.jpg",
-      "poster": "assets/images/posters/poster-otieno-yvonne-aluoch.jpg",
+      "photo": "assets/images/leaders/otieno-yvonne-aluoch.webp",
+      "poster": "assets/images/posters/poster-otieno-yvonne-aluoch.webp",
       "hasFullProfile": true,
       "credentials": [
         "BSc. Clinical Medicine (JKUAT)",
@@ -467,8 +467,8 @@ window.CEO_DATA = {
       "role": "Director of Finance",
       "shortRole": "Director of Finance",
       "discipline": "BSc. (in progress) · Financial Stewardship & Accountability",
-      "photo": "assets/images/leaders/larine-keziah.jpg",
-      "poster": "assets/images/posters/poster-larine-keziah.jpg",
+      "photo": "assets/images/leaders/larine-keziah.webp",
+      "poster": "assets/images/posters/poster-larine-keziah.webp",
       "hasFullProfile": true,
       "credentials": [
         "BSc. (in progress)",
@@ -504,8 +504,8 @@ window.CEO_DATA = {
       "role": "Head of Operations",
       "shortRole": "Head of Operations",
       "discipline": "BSc. (in progress) · Field Operations & Child Protection",
-      "photo": "assets/images/leaders/gabriel-ongera.jpg",
-      "poster": "assets/images/posters/poster-gabriel-ongera.jpg",
+      "photo": "assets/images/leaders/gabriel-ongera.webp",
+      "poster": "assets/images/posters/poster-gabriel-ongera.webp",
       "hasFullProfile": true,
       "credentials": [
         "BSc. (in progress)",
@@ -540,8 +540,8 @@ window.CEO_DATA = {
       "role": "The Change Architect",
       "shortRole": "The Change Architect",
       "discipline": "BSc. (in progress) · Systems, Culture & Leader Multiplication",
-      "photo": "assets/images/leaders/lameck-wamukota.jpg",
-      "poster": "assets/images/posters/poster-lameck-wamukota.jpg",
+      "photo": "assets/images/leaders/lameck-wamukota.webp",
+      "poster": "assets/images/posters/poster-lameck-wamukota.webp",
       "hasFullProfile": true,
       "credentials": [
         "BSc. (in progress)",
@@ -572,8 +572,8 @@ window.CEO_DATA = {
       "role": "The Culture Keeper",
       "shortRole": "The Culture Keeper",
       "discipline": "Culture & Heritage Steward · Values & Discipline",
-      "photo": "assets/images/leaders/elizabeth-kimwele.jpg",
-      "poster": "assets/images/posters/poster-elizabeth-kimwele.jpg",
+      "photo": "assets/images/leaders/elizabeth-kimwele.webp",
+      "poster": "assets/images/posters/poster-elizabeth-kimwele.webp",
       "hasFullProfile": true,
       "credentials": [
         "Culture & Heritage Steward",
