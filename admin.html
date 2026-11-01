@@ -661,16 +661,21 @@
     .admin-lock {
       position: fixed;
       inset: 0;
-      z-index: 900;
-      background: linear-gradient(145deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--royal-800) 100%);
+      z-index: 9999;
+      background: #060e1f;
+      background: linear-gradient(145deg, #060e1f 0%, #0a162f 60%, #094080 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
 
-    .admin-lock.unlocked {
-      display: none;
+    body.is-locked #admin-authenticated-app {
+      display: none !important;
+    }
+
+    body:not(.is-locked) #admin-lock {
+      display: none !important;
     }
 
     .admin-lock__card {
@@ -744,7 +749,7 @@
     }
   </style>
 </head>
-<body class="admin-body">
+<body class="admin-body is-locked">
 
   <!-- Simple PIN Lock Screen so public visitors don't accidentally edit -->
   <div class="admin-lock" id="admin-lock">
@@ -776,6 +781,8 @@
     </div>
   </div>
 
+  <!-- Entire Admin Workspace (Completely hidden until unlocked) -->
+  <div id="admin-authenticated-app">
   <!-- Top Admin Header -->
   <header class="admin-topbar">
     <div class="container admin-topbar__inner">
@@ -1229,6 +1236,8 @@
       </form>
     </div>
   </div>
+
+  </div><!-- /#admin-authenticated-app -->
 
   <!-- Toast Notification -->
   <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
