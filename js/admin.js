@@ -18,6 +18,13 @@
   const GH_SETTINGS_KEY = 'ceo_cms_github_v1';
   const SESSION_UNLOCK_KEY = 'ceo_cms_unlocked';
 
+  function sanitizeMediaPaths(dataObj) {
+    if (!dataObj) return dataObj;
+    const jsonStr = JSON.stringify(dataObj);
+    const sanitizedStr = jsonStr.replace(/(assets\/images\/[^"]+?)\.(jpg|png)/g, '$1.webp');
+    return JSON.parse(sanitizedStr);
+  }
+
   // Working copies of CONFIG and DATA
   const state = {
     config: JSON.parse(JSON.stringify(window.CEO_CONFIG || {})),
@@ -70,9 +77,9 @@
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({
+          savedAt: new Date().toISOString(),
           config: state.config,
-          data: state.data,
-          updatedAt: new Date().toISOString()
+          data: state.data
         })
       );
       window.CEO_CONFIG = state.config;
@@ -825,6 +832,53 @@
   /* --------------------------------------------------------------------------
      4. ORGANISATION SETTINGS & CLOUD SYNC FORMS
   -------------------------------------------------------------------------- */
+  
+    function saveSettingsFormValues() {
+      state.config.name = document.getElementById('cfg-name').value.trim();
+      state.config.legalName = document.getElementById('cfg-legal').value.trim();
+      state.config.motto = document.getElementById('cfg-motto').value.trim();
+      state.config.tagline = document.getElementById('cfg-tagline').value.trim();
+      state.config.phoneDisplay = document.getElementById('cfg-phone-display').value.trim();
+      state.config.phoneRaw = document.getElementById('cfg-phone-raw').value.trim().replace(/[^0-9]/g, '');
+      state.config.email = document.getElementById('cfg-email').value.trim();
+      state.config.mpesaPaybill = document.getElementById('cfg-mpesa').value.trim();
+      state.config.googleFormUrl = document.getElementById('cfg-google-form').value.trim();
+      state.config.social = {};
+      ['facebook', 'instagram', 'tiktok', 'x', 'linkedin', 'youtube'].forEach((k) => {
+        const el = document.getElementById(`cfg-social-${k}`);
+        state.config.social[k] = el ? el.value.trim() : '';
+      });
+      markChanged();
+    }
+
+    async function syncFromCloud() {
+      const btn = document.getElementById('btn-sync-cloud');
+      const orig = btn ? btn.textContent : '';
+      try {
+        if (btn) { btn.disabled = true; btn.textContent = 'Syncing...'; }
+        const res = await fetch(`js/data.js?t=${Date.now()}`);
+        if (!res.ok) throw new Error('Could not fetch data.js');
+        const text = await res.text();
+        const script = document.createElement('script');
+        script.text = text;
+        document.head.appendChild(script);
+        document.head.removeChild(script);
+        localStorage.removeItem(STORAGE_KEY);
+        state.config = JSON.parse(JSON.stringify(window.CEO_CONFIG));
+        state.data = JSON.parse(JSON.stringify(window.CEO_DATA));
+        renderLeadersAdmin();
+        renderGalleryAdmin();
+        renderProgramsAdmin();
+        initSettingsAndCloudForms();
+        markSynced('Synced from Cloud');
+        showToast('Synced latest content from GitHub Cloud!');
+      } catch (err) {
+        showToast(`Cloud sync error: ${err.message}`, true);
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = orig; }
+      }
+    }
+
   function initSettingsAndCloudForms() {
     const cfg = state.config;
     const setVal = (id, v) => {
@@ -848,24 +902,10 @@
     if (settingsForm) {
       settingsForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        state.config.name = document.getElementById('cfg-name').value.trim();
-        state.config.legalName = document.getElementById('cfg-legal').value.trim();
-        state.config.motto = document.getElementById('cfg-motto').value.trim();
-        state.config.tagline = document.getElementById('cfg-tagline').value.trim();
-        state.config.phoneDisplay = document.getElementById('cfg-phone-display').value.trim();
-        state.config.phoneRaw = document.getElementById('cfg-phone-raw').value.trim().replace(/[^0-9]/g, '');
-        state.config.email = document.getElementById('cfg-email').value.trim();
-        state.config.mpesaPaybill = document.getElementById('cfg-mpesa').value.trim();
-        state.config.googleFormUrl = document.getElementById('cfg-google-form').value.trim();
-        state.config.social = {};
-        ['facebook', 'instagram', 'tiktok', 'x', 'linkedin', 'youtube'].forEach((k) => {
-          const el = document.getElementById(`cfg-social-${k}`);
-          state.config.social[k] = el ? el.value.trim() : '';
-        });
-
-        markChanged();
-        showToast('Organisation contacts & M-Pesa settings saved!');
+        saveSettingsFormValues();
+        showToast('Organisation contacts & M-Pesa settings saved to draft preview!');
       });
+
     }
 
     // Cloud Sync Form
@@ -928,15 +968,20 @@
      5. GENERATE js/data.js CONTENT & 1-CLICK PUBLISH (GITHUB OR FILE DOWNLOAD)
   -------------------------------------------------------------------------- */
   function buildDataJsSource(configObj, dataObj) {
+    const cfg = JSON.parse(JSON.stringify(configObj));
+    cfg.updatedAt = new Date().toISOString();
+    cfg.version = "1.2";
+    const data = sanitizeMediaPaths(dataObj);
+
     return `/**
  * C.E.O Foundation (Centre of Empowerment Organisation)
  * Central Configuration & Content Data Store
- * Updated via C.E.O Foundation Admin Studio (${new Date().toISOString()})
+ * Updated via C.E.O Foundation Admin Studio (${cfg.updatedAt})
  */
 
-window.CEO_CONFIG = ${JSON.stringify(configObj, null, 2)};
+window.CEO_CONFIG = ${JSON.stringify(cfg, null, 2)};
 
-window.CEO_DATA = ${JSON.stringify(dataObj, null, 2)};
+window.CEO_DATA = ${JSON.stringify(data, null, 2)};
 
 window.CEO_DEFAULT_CONFIG = JSON.parse(JSON.stringify(window.CEO_CONFIG));
 window.CEO_DEFAULT_DATA = JSON.parse(JSON.stringify(window.CEO_DATA));
@@ -946,13 +991,26 @@ window.CEO_DEFAULT_DATA = JSON.parse(JSON.stringify(window.CEO_DATA));
     const raw = localStorage.getItem("ceo_cms_override_v1");
     if (!raw) return;
     const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === "object") {
-      if (parsed.config && typeof parsed.config === "object") {
-        Object.assign(window.CEO_CONFIG, parsed.config);
-      }
-      if (parsed.data && typeof parsed.data === "object") {
-        Object.assign(window.CEO_DATA, parsed.data);
-      }
+    if (!parsed || typeof parsed !== "object") return;
+
+    const remoteTime = new Date(window.CEO_CONFIG.updatedAt || 0).getTime();
+    const localTime = new Date(parsed.savedAt || (parsed.config && parsed.config.updatedAt) || 0).getTime();
+
+    if (remoteTime && localTime && remoteTime >= localTime) {
+      localStorage.removeItem("ceo_cms_override_v1");
+      return;
+    }
+
+    const isPreview = window.location.search.includes('preview=1') || window.location.pathname.endsWith('admin.html');
+    if (!isPreview && localTime <= remoteTime) {
+      return;
+    }
+
+    if (parsed.config && typeof parsed.config === "object") {
+      Object.assign(window.CEO_CONFIG, parsed.config);
+    }
+    if (parsed.data && typeof parsed.data === "object") {
+      Object.assign(window.CEO_DATA, parsed.data);
     }
   } catch (err) {
     console.warn("Could not load local CMS preview override:", err);
@@ -1077,9 +1135,14 @@ window.CEO_DEFAULT_DATA = JSON.parse(JSON.stringify(window.CEO_DATA));
           'Update website content via C.E.O Foundation Admin Studio'
         );
 
-        saveToBrowserPreview();
+        localStorage.removeItem(STORAGE_KEY);
+        state.data = sanitizeMediaPaths(state.data);
+        state.config.updatedAt = new Date().toISOString();
+        window.CEO_CONFIG = JSON.parse(JSON.stringify(state.config));
+        window.CEO_DATA = JSON.parse(JSON.stringify(state.data));
         renderLeadersAdmin();
         renderGalleryAdmin();
+        renderProgramsAdmin();
         markSynced('Published Live to GitHub Cloud');
         showToast('Published to GitHub! Cloudflare Pages / Netlify will update your live website in ~20 seconds.');
       } catch (err) {
@@ -1120,5 +1183,19 @@ window.CEO_DEFAULT_DATA = JSON.parse(JSON.stringify(window.CEO_DATA));
 
     const publishBtn = document.getElementById('btn-publish-changes');
     if (publishBtn) publishBtn.addEventListener('click', publishChanges);
+
+    const saveAndPublishBtn = document.getElementById('btn-save-and-publish-settings');
+    if (saveAndPublishBtn) {
+      saveAndPublishBtn.addEventListener('click', () => {
+        saveSettingsFormValues();
+        publishChanges();
+      });
+    }
+
+    const syncCloudBtn = document.getElementById('btn-sync-cloud');
+    if (syncCloudBtn) {
+      syncCloudBtn.addEventListener('click', syncFromCloud);
+    }
+
   });
 })();

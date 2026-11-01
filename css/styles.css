@@ -4056,35 +4056,144 @@ ul {
 }
 
 
-/* Footer social media icons */
+/* ==========================================================================
+   Footer Social Media - High-Contrast, Vibrant & Eye-Catching
+   ========================================================================== */
 .footer__social {
   display: none;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
-.footer__social-link {
-  width: 40px;
-  height: 40px;
+.footer__social-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer__social-pulse {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  background: #ff334b;
+  box-shadow: 0 0 10px #ff334b;
+  display: inline-block;
+  animation: footer-pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes footer-pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.65; }
+}
+
+.footer__social-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.footer__social-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer__social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.footer__social-btn:hover,
+.footer__social-btn:focus-visible {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.12);
+  text-decoration: none;
+  color: #ffffff !important;
+}
+
+.footer__social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #ffffff;
-  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-}
-
-.footer__social-link:hover,
-.footer__social-link:focus-visible {
-  background: var(--red-600);
-  border-color: var(--red-600);
-  transform: translateY(-2px);
-}
-
-.footer__social-link svg {
   width: 18px;
   height: 18px;
+}
+
+.footer__social-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.footer__social-name {
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* Platform Distinctive Branded Colorways */
+.footer__social-btn--instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(220, 39, 67, 0.45);
+}
+.footer__social-btn--instagram:hover {
+  box-shadow: 0 8px 24px rgba(220, 39, 67, 0.7);
+}
+
+.footer__social-btn--facebook {
+  background: #1877f2;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(24, 119, 242, 0.45);
+}
+.footer__social-btn--facebook:hover {
+  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.7);
+}
+
+.footer__social-btn--tiktok {
+  background: #000000;
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 242, 254, 0.35);
+}
+.footer__social-btn--tiktok:hover {
+  box-shadow: 0 8px 24px rgba(254, 44, 85, 0.6);
+}
+
+.footer__social-btn--x {
+  background: #111111;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+.footer__social-btn--x:hover {
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+}
+
+.footer__social-btn--linkedin {
+  background: #0a66c2;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(10, 102, 194, 0.45);
+}
+.footer__social-btn--linkedin:hover {
+  box-shadow: 0 8px 24px rgba(10, 102, 194, 0.7);
+}
+
+.footer__social-btn--youtube {
+  background: #ff0000;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.45);
+}
+.footer__social-btn--youtube:hover {
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.7);
 }

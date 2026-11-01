@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Unified Brand Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=1.2" />
 
   <style>
     :root {
@@ -802,6 +802,7 @@
         <a href="index.html" target="_blank" class="admin-btn admin-btn--ghost">
           View Live Website &nearr;
         </a>
+        <button type="button" class="admin-btn admin-btn--ghost" id="btn-sync-cloud" title="Fetch latest changes published from other devices">Sync Cloud</button>
         <button type="button" class="admin-btn admin-btn--ghost" id="btn-export-data">
           Download data.js
         </button>
@@ -1006,9 +1007,12 @@
             </div>
           </div>
 
-          <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end;">
-            <button type="submit" class="admin-btn admin-btn--red">
-              Save Organisation Settings
+          <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
+            <button type="submit" class="admin-btn admin-btn--outline" id="btn-save-settings-draft">
+              Save Draft (Preview)
+            </button>
+            <button type="button" class="admin-btn admin-btn--red" id="btn-save-and-publish-settings">
+              Save &amp; Publish Live to All Devices &rarr;
             </button>
           </div>
         </form>
@@ -1271,7 +1275,7 @@
   <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
 
   <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/admin.js"></script>
+  <script src="js/data.js?v=1.2"></script>
+  <script src="js/admin.js?v=1.2"></script>
 </body>
 </html>
