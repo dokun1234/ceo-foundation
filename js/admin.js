@@ -840,7 +840,7 @@
 
     // Cloud Sync Form
     const gh = getGhSettings();
-    setVal('gh-repo', gh.repo || '');
+    setVal('gh-repo', gh.repo || 'dokun1234/ceo-foundation');
     setVal('gh-branch', gh.branch || 'main');
     setVal('gh-token', gh.token || '');
     setVal('cfg-admin-pin', gh.pin || 'ceo2026');
