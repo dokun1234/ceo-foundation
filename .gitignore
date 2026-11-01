@@ -1,0 +1,8 @@
+node_modules/
+scrollcraft/
+.scrollcraft.json
+device-diag.html
+package.json
+package-lock.json
+BRIEF.md
+.env

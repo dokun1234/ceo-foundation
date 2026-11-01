@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C.E.O Foundation | Centre of Empowerment Organisation (Kenya)</title>
+  <meta name="description" content="C.E.O Foundation (Centre of Empowerment Organisation) is a youth-led Kenyan community empowerment and humanitarian organisation dedicated to children's welfare, youth mentorship, mental health awareness, and servant leadership." />
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="scrollcraft.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Unified Top Announcement & Contact Bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__motto">
+        <span class="topbar__pill">Our Motto</span>
+        <span>Every Child Deserves a Chance &bull; Empowering People. Inspiring Growth. Transforming Communities.</span>
+      </div>
+      <div class="topbar__contacts">
+        <a href="tel:+254116257654" class="topbar__link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+254 116 257654</span>
+        </a>
+        <a href="mailto:ceoorganisation7@gmail.com" class="topbar__link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>ceoorganisation7@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Sticky Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="brand" aria-label="C.E.O Foundation Home">
+        <img src="assets/images/logo-icon.png" alt="C.E.O Foundation Emblem" class="brand__logo" width="46" height="42" />
+        <div class="brand__text">
+          <span class="brand__title">C.E.O Foundation</span>
+          <span class="brand__subtitle">Centre of Empowerment Organisation</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="leadership.html" class="nav-link">Leadership</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="membership.html#apply" class="btn btn--outline btn--sm">Join Us</a>
+        <a href="donate.html" class="btn btn--primary btn--sm">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>Donate</span>
+        </a>
+        <button type="button" class="nav-toggle" id="mobile-menu-open" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Unified Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-drawer__backdrop"></div>
+    <div class="mobile-drawer__panel">
+      <div>
+        <div class="mobile-drawer__head">
+          <a href="index.html" class="brand">
+            <img src="assets/images/logo-icon.png" alt="C.E.O Foundation Emblem" class="brand__logo" width="40" height="36" />
+            <div class="brand__text">
+              <span class="brand__title">C.E.O Foundation</span>
+              <span class="brand__subtitle">Every Child Deserves a Chance</span>
+            </div>
+          </a>
+          <button type="button" class="modal-close-btn" id="mobile-menu-close" aria-label="Close navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <nav class="mobile-drawer__links" aria-label="Mobile navigation links">
+          <a href="index.html" class="mobile-drawer__link active" aria-current="page">Home</a>
+          <a href="about.html" class="mobile-drawer__link">About Us &amp; Core Values</a>
+          <a href="programs.html" class="mobile-drawer__link">Programs &amp; Outreach Gallery</a>
+          <a href="leadership.html" class="mobile-drawer__link">Leadership Team</a>
+          <a href="membership.html" class="mobile-drawer__link">Membership &amp; Volunteering</a>
+          <a href="donate.html" class="mobile-drawer__link">Donate &amp; Partner</a>
+        </nav>
+      </div>
+      <div class="mobile-drawer__cta">
+        <a href="donate.html" class="btn btn--primary">Support Our Mission</a>
+        <a href="membership.html#apply" class="btn btn--navy">Join the CEO Movement</a>
+        <a href="https://wa.me/254116257654" target="_blank" rel="noopener" class="btn btn--whatsapp">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- 1. HERO SECTION (Subtle Multi-Plane Depth, Natural Un-Locked Scroll) -->
+    <section class="hero" id="top" data-sc-act="flow">
+      <div class="hero__bg hero__bg--dimensional" aria-hidden="true">
+        <img src="assets/images/hero/hero-far-plate.webp" alt="" class="hero__plane hero__plane--far" width="1536" height="1023" data-sc-parallax="-0.08" />
+        <img src="assets/images/hero/hero-focal-subjects.webp" alt="" class="hero__plane hero__plane--mid" width="1536" height="1023" data-sc-parallax="0.03" />
+        <img src="assets/images/hero/hero-fg-frame.webp" alt="" class="hero__plane hero__plane--fg" width="1536" height="1023" data-sc-parallax="0.14" />
+        <div class="hero__overlay"></div>
+        <div class="hero__overlay-bottom"></div>
+      </div>
+
+      <div class="container hero__content">
+        <div>
+          <div class="hero__badge">
+            <span class="hero__badge-heart" aria-hidden="true"></span>
+            <span>Centre of Empowerment Organisation &bull; Kenya</span>
+          </div>
+          <h1 class="hero__title">
+            <span>Every Child Deserves</span>
+            <span>a Chance to <em class="hero__title-accent">Dream &amp; Thrive.</em></span>
+          </h1>
+          <p class="hero__lead">
+            We are a youth-driven empowerment and humanitarian community uniting compassionate leaders to mentor young people, uplift children's homes, advance stigma-free mental wellbeing, and restore dignity across Kenya.
+          </p>
+          <div class="hero__pills" aria-label="Our four-stage empowerment cycle">
+            <span class="hero__pill">01 &bull; LEARN</span>
+            <span class="hero__pill">02 &bull; LEAD</span>
+            <span class="hero__pill">03 &bull; SERVE</span>
+            <span class="hero__pill">04 &bull; IMPACT</span>
+          </div>
+          <div class="hero__actions">
+            <a href="donate.html" class="btn btn--primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>Support Our Mission</span>
+            </a>
+            <a href="membership.html#apply" class="btn btn--outline-white">Join the CEO Movement</a>
+            <a href="about.html" class="btn btn--outline-white">Our Story</a>
+          </div>
+        </div>
+
+        <aside class="hero__card" aria-label="C.E.O Empowerment Framework">
+          <div class="hero__card-head">
+            <img src="assets/images/logo-icon.png" alt="C.E.O Emblem" class="hero__card-logo" width="54" height="54" />
+            <div>
+              <span class="hero__card-label">Empowerment Framework</span>
+              <h2 class="hero__card-heading">From Growth to Service</h2>
+            </div>
+          </div>
+          <div class="hero__pipeline">
+            <div class="hero__stage">
+              <span class="hero__stage-num">STEP 01</span>
+              <span class="hero__stage-name">LEARN</span>
+            </div>
+            <div class="hero__stage">
+              <span class="hero__stage-num">STEP 02</span>
+              <span class="hero__stage-name">LEAD</span>
+            </div>
+            <div class="hero__stage">
+              <span class="hero__stage-num">STEP 03</span>
+              <span class="hero__stage-name">SERVE</span>
+            </div>
+            <div class="hero__stage">
+              <span class="hero__stage-num">STEP 04</span>
+              <span class="hero__stage-name">IMPACT</span>
+            </div>
+          </div>
+          <p class="hero__card-quote">
+            &ldquo;Creating opportunities where there are none, restoring dignity where it has been lost, and empowering individuals to realise their potential.&rdquo;
+          </p>
+        </aside>
+      </div>
+
+      <!-- Factual Organisation Pillars Strip -->
+      <div class="impact-strip">
+        <div class="container impact-strip__grid">
+          <div class="impact-stat">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="impact-stat__number" data-count="7">7</div>
+              <div class="impact-stat__label">Guiding Core Values</div>
+            </div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div>
+              <div class="impact-stat__number" data-count="10">10</div>
+              <div class="impact-stat__label">Strategic Focus Areas</div>
+            </div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <div>
+              <div class="impact-stat__number" data-count="6">6</div>
+              <div class="impact-stat__label">Core Program Pillars</div>
+            </div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div class="impact-stat__number" data-count="9">9</div>
+              <div class="impact-stat__label">Servant Executive Leaders</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. WHO WE ARE & FOUNDER'S PURPOSE BRIDGE -->
+    <section class="section section--warm" id="who-we-are">
+      <div class="container">
+        <div class="inspiration-grid">
+          <div class="inspiration-portrait reveal">
+            <div class="inspiration-portrait__frame">
+              <img src="assets/images/leaders/otieno-collins-junior.png" alt="Otieno Collins Junior, CEO, Founder and President of C.E.O Foundation" loading="lazy" />
+              <div class="inspiration-portrait__overlay">
+                <span class="inspiration-portrait__badge">Founder &amp; President</span>
+                <h3 class="inspiration-portrait__name">Otieno Collins Junior</h3>
+                <p class="inspiration-portrait__meta">BSc. Economics (in progress) &bull; Public Speaker &amp; Mentor</p>
+              </div>
+            </div>
+            <div class="inspiration-floating-quote">
+              <p>&ldquo;Greatness is not measured by how many people know your name, but by how many lives become better because you lived.&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="inspiration-story reveal">
+            <div class="eyebrow">
+              <span class="eyebrow__dot" aria-hidden="true"></span>
+              <span>Who We Are &amp; Our Inspiration</span>
+            </div>
+            <h2 class="section-title">Born From Resilience, Built to <em>Uplift Lives</em></h2>
+            <p class="inspiration-story__lead">
+              &ldquo;Having journeyed through childhood challenges and experienced the strength and resilience that come with being raised by a widowed mother, I have transformed my past into purpose.&rdquo;
+            </p>
+            <div class="inspiration-story__body">
+              <p>
+                <strong>Centre of Empowerment Organisation (C.E.O Foundation)</strong> is a community-centred youth and humanitarian organisation dedicated to creating opportunities where there are none, restoring dignity where it has been lost, and equipping young people to lead through service.
+              </p>
+              <p>
+                From children's home outreach visits and girl-child sanitary hygiene drives to structured youth mentorship and mental wellbeing conversations, we unite young changemakers around seven core values of integrity, accountability, and compassion.
+              </p>
+            </div>
+            <div class="inspiration-story__footer">
+              <div>
+                <div class="inspiration-story__sig-name">Otieno Collins Junior</div>
+                <div class="inspiration-story__sig-role">CEO, Founder &amp; President</div>
+              </div>
+              <div class="hero__actions">
+                <a href="about.html" class="btn btn--navy btn--sm">Read Full Story &amp; Values</a>
+                <a href="assets/docs/CEO_Foundation_Organisation_Profile.pdf" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Official Profile (PDF)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SURGICAL SCROLLCRAFT PINNED SHOWCASE: LEARN -> LEAD -> SERVE -> IMPACT -->
+    <section class="sc-approach" id="approach" data-sc-act="pin" data-sc-span="2.9" aria-labelledby="approach-title">
+      <div class="sc-stage" data-sc-stage>
+        <div class="container sc-approach__stage-inner">
+          <div class="sc-approach__top">
+            <div class="sc-approach__heading-group">
+              <div class="eyebrow">
+                <span class="eyebrow__dot" aria-hidden="true"></span>
+                <span>Our 4-Stage Empowerment Cycle</span>
+              </div>
+              <h2 class="sc-approach__title" id="approach-title">How We Turn Personal Growth Into <em>Community Impact</em></h2>
+            </div>
+
+            <div class="sc-approach__nav-wrap">
+              <div class="sc-approach__tabs" role="tablist" aria-label="Empowerment cycle stages">
+                <button type="button" class="sc-approach__tab active" role="tab" aria-selected="true" data-sc-step="0">
+                  <span class="sc-approach__tab-num">01</span>
+                  <span>LEARN</span>
+                </button>
+                <button type="button" class="sc-approach__tab" role="tab" aria-selected="false" data-sc-step="1">
+                  <span class="sc-approach__tab-num">02</span>
+                  <span>LEAD</span>
+                </button>
+                <button type="button" class="sc-approach__tab" role="tab" aria-selected="false" data-sc-step="2">
+                  <span class="sc-approach__tab-num">03</span>
+                  <span>SERVE</span>
+                </button>
+                <button type="button" class="sc-approach__tab" role="tab" aria-selected="false" data-sc-step="3">
+                  <span class="sc-approach__tab-num">04</span>
+                  <span>IMPACT</span>
+                </button>
+              </div>
+              <div class="sc-approach__progress" aria-hidden="true">
+                <div class="sc-approach__progress-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sc-approach__deck">
+            <!-- Left: Crisp Sequential Stage Cards (76%+ Full-Opacity Plateaus) -->
+            <div class="sc-approach__cards">
+              <article class="sc-approach-card" data-sc-cue="0 0.27 0 0.12" data-sc-rise="0.45">
+                <div>
+                  <div class="sc-approach-card__meta">
+                    <span class="sc-approach-card__step">Step 01</span>
+                    <span class="sc-approach-card__count">Stage 1 of 4</span>
+                  </div>
+                  <h3 class="sc-approach-card__stage">LEARN</h3>
+                  <p class="sc-approach-card__sub">Personal Growth &amp; Knowledge</p>
+                  <p class="sc-approach-card__desc">
+                    Members gain practical life skills, mental health awareness, and structured mentorship experiences that build self-confidence, discipline, and a strong foundation for personal development.
+                  </p>
+                </div>
+                <div class="sc-approach-card__bottom">
+                  <div class="sc-approach-card__list">
+                    <span class="sc-approach-card__pill">Mentorship sessions</span>
+                    <span class="sc-approach-card__pill">Mental wellbeing dialogues</span>
+                    <span class="sc-approach-card__pill">Skills &amp; talent discovery</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="sc-approach-card sc-approach-card--coral" data-sc-cue="0.235 0.52 0.12 0.12" data-sc-rise="0.45">
+                <div>
+                  <div class="sc-approach-card__meta">
+                    <span class="sc-approach-card__step">Step 02</span>
+                    <span class="sc-approach-card__count">Stage 2 of 4</span>
+                  </div>
+                  <h3 class="sc-approach-card__stage">LEAD</h3>
+                  <p class="sc-approach-card__sub">Responsibility &amp; Character</p>
+                  <p class="sc-approach-card__desc">
+                    Young people step into real responsibility: planning outreach budgets, speaking with conviction, coordinating teams, and cultivating ethical leadership rooted in integrity.
+                  </p>
+                </div>
+                <div class="sc-approach-card__bottom">
+                  <div class="sc-approach-card__list">
+                    <span class="sc-approach-card__pill">Project coordination</span>
+                    <span class="sc-approach-card__pill">Public speaking &amp; confidence</span>
+                    <span class="sc-approach-card__pill">Ethical peer leadership</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="sc-approach-card" data-sc-cue="0.485 0.77 0.12 0.12" data-sc-rise="0.45">
+                <div>
+                  <div class="sc-approach-card__meta">
+                    <span class="sc-approach-card__step">Step 03</span>
+                    <span class="sc-approach-card__count">Stage 3 of 4</span>
+                  </div>
+                  <h3 class="sc-approach-card__stage">SERVE</h3>
+                  <p class="sc-approach-card__sub">Compassion in Action</p>
+                  <p class="sc-approach-card__desc">
+                    Members step out into local communities, visiting children's homes, serving shared nutritious meals, distributing sanitary dignity packs, and walking alongside vulnerable groups.
+                  </p>
+                </div>
+                <div class="sc-approach-card__bottom">
+                  <div class="sc-approach-card__list">
+                    <span class="sc-approach-card__pill">Children's home visits</span>
+                    <span class="sc-approach-card__pill">Food &amp; sanitary kit drives</span>
+                    <span class="sc-approach-card__pill">Hands-on community care</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="sc-approach-card sc-approach-card--red" data-sc-cue="0.735 1.02 0.12 0" data-sc-rise="0.45">
+                <div>
+                  <div class="sc-approach-card__meta">
+                    <span class="sc-approach-card__step">Step 04</span>
+                    <span class="sc-approach-card__count">Stage 4 of 4</span>
+                  </div>
+                  <h3 class="sc-approach-card__stage">IMPACT</h3>
+                  <p class="sc-approach-card__sub">Transformed Communities</p>
+                  <p class="sc-approach-card__desc">
+                    Consistent learning, character-led leadership, and practical service catalyse lasting social change: restoring dignity, keeping girls in school, and raising a generation of changemakers.
+                  </p>
+                </div>
+                <div class="sc-approach-card__bottom">
+                  <div class="sc-approach-card__list">
+                    <span class="sc-approach-card__pill">Restored dignity &amp; hope</span>
+                    <span class="sc-approach-card__pill">Empowered youth network</span>
+                    <span class="sc-approach-card__pill">Sustainable community growth</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Right: Synced Documentary Field Photography -->
+            <div class="sc-approach__media">
+              <figure class="sc-approach__slide" data-sc-cue="0 0.27 0 0.12" data-sc-rise="0">
+                <img src="assets/images/outreach/learning-engagement.jpg" alt="C.E.O Foundation youth mentorship and interactive learning circle" width="1536" height="1023" data-sc-parallax="-0.45" />
+                <figcaption class="sc-approach__caption">
+                  <span class="sc-approach__caption-tag">01 &bull; Learn in Fellowship</span>
+                  <p class="sc-approach__caption-text">Interactive youth mentorship sessions encouraging young people to discover their strengths and build positive values.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="sc-approach__slide" data-sc-cue="0.235 0.52 0.12 0.12" data-sc-rise="0">
+                <img src="assets/images/outreach/bethel-home-team.jpg" alt="C.E.O Foundation leadership team at Bethel Children's Home in Ruiru" width="1536" height="1025" data-sc-parallax="-0.45" />
+                <figcaption class="sc-approach__caption">
+                  <span class="sc-approach__caption-tag">02 &bull; Lead With Integrity</span>
+                  <p class="sc-approach__caption-text">Executive and volunteer leaders coordinating hands-on outreach operations at Bethel Children's Home in Ruiru.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="sc-approach__slide" data-sc-cue="0.485 0.77 0.12 0.12" data-sc-rise="0">
+                <img src="assets/images/outreach/hands-on-meal-service.jpg" alt="C.E.O mentors serving hot nutritious meals to children" width="1536" height="1045" data-sc-parallax="-0.45" />
+                <figcaption class="sc-approach__caption">
+                  <span class="sc-approach__caption-tag">03 &bull; Serve With Warmth</span>
+                  <p class="sc-approach__caption-text">Mentors serving hot nutritious meals side by side with children during a community welfare outreach.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="sc-approach__slide" data-sc-cue="0.735 1.02 0.12 0" data-sc-rise="0">
+                <img src="assets/images/outreach/dignity-hygiene-drive.jpg" alt="Girl-child sanitary hygiene kit distribution during C.E.O Foundation outreach" width="1536" height="1052" data-sc-parallax="-0.45" />
+                <figcaption class="sc-approach__caption">
+                  <span class="sc-approach__caption-tag">04 &bull; Impact That Endures</span>
+                  <p class="sc-approach__caption-text">Delivering essential sanitary hygiene packages to young girls, protecting health, confidence, and school attendance.</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FEATURED PROGRAMS PREVIEW -->
+    <section class="section" id="featured-programs">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            <span>What We Do</span>
+          </div>
+          <h2 class="section-title">Programs Restoring <em>Dignity &amp; Opportunity</em></h2>
+          <p class="section-subtitle">
+            Across ten strategic focus areas and six core pillars, we combine youth mentorship and mental wellbeing dialogues with direct humanitarian support for children and vulnerable communities.
+          </p>
+        </div>
+
+        <div class="programs-grid" id="home-programs-grid"></div>
+
+        <div class="section-cta-row">
+          <p class="section-cta-row__note">Explore all 6 core program pillars, mental health safe spaces, and our 7-photo field gallery.</p>
+          <a href="programs.html" class="btn btn--navy">
+            <span>View All Programs &amp; Outreach Gallery</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVANT LEADERSHIP PREVIEW -->
+    <section class="section section--ice" id="leadership-preview">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            <span>Servant Governance</span>
+          </div>
+          <h2 class="section-title">Led by Purpose-Driven <em>Young Changemakers</em></h2>
+          <p class="section-subtitle">
+            Meet the accountable executive team stewarding C.E.O Foundation's vision, finances, field operations, and community partnerships across Kenya.
+          </p>
+        </div>
+
+        <div class="leaders-grid" id="home-leaders-grid"></div>
+
+        <div class="section-cta-row">
+          <p class="section-cta-row__note">Read full profiles for all 9 executive leaders and view our official leadership portfolio posters.</p>
+          <a href="leadership.html" class="btn btn--outline">
+            <span>Meet All 9 Executive Leaders</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DUAL CALL TO ACTION: JOIN OR SUPPORT -->
+    <section class="section section--warm" id="get-involved">
+      <div class="container">
+        <div class="dual-cta-grid">
+          <article class="dual-cta-card dual-cta-card--navy reveal">
+            <div>
+              <span class="dual-cta-card__eyebrow">GROW &bull; CONNECT &bull; SERVE &bull; LEAD</span>
+              <h2 class="dual-cta-card__title">Join the C.E.O Movement</h2>
+              <p class="dual-cta-card__desc">
+                Membership is more than belonging: participation turns values into impact. Join as an active member, outreach volunteer, youth mentor, or mental health partner.
+              </p>
+            </div>
+            <div class="dual-cta-card__actions">
+              <a href="membership.html#apply" class="btn btn--primary">Register as a Member</a>
+              <a href="membership.html" class="btn btn--outline-white">Explore Benefits</a>
+            </div>
+          </article>
+
+          <article class="dual-cta-card dual-cta-card--warm reveal">
+            <div>
+              <span class="dual-cta-card__eyebrow">Direct Kenyan &amp; Global Support</span>
+              <h2 class="dual-cta-card__title">Fuel an Outreach Drive</h2>
+              <p class="dual-cta-card__desc">
+                Partner with our Finance Directorate through M-Pesa, direct contribution, sanitary &amp; foodstuff donations, or institutional CSR sponsorship for children's homes.
+              </p>
+            </div>
+            <div class="dual-cta-card__actions">
+              <a href="donate.html" class="btn btn--navy">Calculate Your Impact</a>
+              <a href="donate.html?tab=inkind" class="btn btn--outline">Donate In-Kind Supplies</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Unified 4-Column Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="footer__logo-card">
+            <img src="assets/images/logo-icon.png" alt="C.E.O Foundation Emblem" class="footer__logo-img" width="56" height="56" />
+            <div>
+              <span class="footer__brand-name">C.E.O Foundation</span>
+              <span class="footer__brand-sub">Every Child Deserves a Chance</span>
+            </div>
+          </a>
+          <p class="footer__about">
+            Centre of Empowerment Organisation (C.E.O Foundation) empowers children, youth, and communities across Kenya through mentorship, mental health awareness, leadership development, and compassionate humanitarian service.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Explore Pages</h3>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us &amp; Core Values</a></li>
+            <li><a href="programs.html">Programs &amp; Outreach Gallery</a></li>
+            <li><a href="leadership.html">Executive Leadership</a></li>
+            <li><a href="membership.html">Join Membership</a></li>
+            <li><a href="donate.html">Donate &amp; Partner</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Our Core Pillars</h3>
+          <ul class="footer__links">
+            <li><a href="programs.html#youth-mentorship">Youth Mentorship</a></li>
+            <li><a href="programs.html#childrens-welfare">Children's Welfare &amp; Care</a></li>
+            <li><a href="programs.html#mental-health">Mental Health Awareness</a></li>
+            <li><a href="programs.html#community-outreach">Girl-Child Dignity Drives</a></li>
+            <li><a href="programs.html#leadership-development">Leadership Development</a></li>
+            <li><a href="assets/docs/CEO_Foundation_Organisation_Profile.pdf" target="_blank" rel="noopener">Organisation Profile (PDF)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Contact &amp; Helpline</h3>
+          <ul class="footer__contact-list">
+            <li class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Kenya &bull; Community &amp; Campus Chapters</span>
+            </li>
+            <li class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+254116257654">+254 116 257654</a>
+            </li>
+            <li class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:ceoorganisation7@gmail.com">ceoorganisation7@gmail.com</a>
+            </li>
+            <li class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <span>Kenya Red Cross Mental Health Crisis Line: <a href="tel:1199"><strong>1199</strong></a> (24/7 Toll-Free)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 C.E.O Foundation (Centre of Empowerment Organisation). All rights reserved.</span>
+        <span>LEARN &bull; LEAD &bull; SERVE &bull; IMPACT &bull; <a href="admin.html" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; opacity: 0.8;">Admin Portal</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick-Chat -->
+  <a href="https://wa.me/254116257654?text=Hello%20C.E.O%20Foundation!%20I%20would%20like%20to%20connect%20with%20your%20team." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with C.E.O Foundation on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="scrollcraft.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

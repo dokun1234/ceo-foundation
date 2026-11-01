@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | C.E.O Foundation Content Manager</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Unified Brand Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    :root {
+      --admin-bg: #f4f7fb;
+      --admin-card: #ffffff;
+      --admin-border: rgba(15, 34, 70, 0.1);
+    }
+
+    body.admin-body {
+      background: var(--admin-bg);
+      color: var(--text-900);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Admin Topbar */
+    .admin-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--navy-900);
+      color: #ffffff;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(10, 22, 47, 0.18);
+    }
+
+    .admin-topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .admin-brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 3px;
+      object-fit: contain;
+    }
+
+    .admin-brand__title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .admin-brand__sub {
+      font-size: 0.72rem;
+      color: #ff858b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .admin-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .admin-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .admin-status-pill.unsaved {
+      background: rgba(245, 158, 11, 0.18);
+      color: #fcd34d;
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .admin-status-pill__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .admin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    .admin-btn--ghost {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .admin-btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .admin-btn--navy {
+      background: var(--navy-800);
+      color: #ffffff;
+    }
+
+    .admin-btn--navy:hover {
+      background: var(--royal-700);
+    }
+
+    .admin-btn--red {
+      background: var(--red-600);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(227, 27, 35, 0.32);
+    }
+
+    .admin-btn--red:hover {
+      background: var(--red-700);
+      transform: translateY(-1px);
+    }
+
+    .admin-btn--outline {
+      background: #ffffff;
+      color: var(--navy-900);
+      border-color: var(--admin-border);
+    }
+
+    .admin-btn--outline:hover {
+      border-color: var(--royal-700);
+      color: var(--royal-700);
+    }
+
+    .admin-btn--danger {
+      background: #fef2f2;
+      color: #dc2626;
+      border-color: #fecaca;
+    }
+
+    .admin-btn--danger:hover {
+      background: #fee2e2;
+    }
+
+    /* Main Workspace Layout */
+    .admin-shell {
+      flex: 1;
+      padding: 32px 0 72px;
+    }
+
+    .admin-Summary-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .admin-stat-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .admin-stat-card__label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-500);
+      margin-bottom: 4px;
+    }
+
+    .admin-stat-card__val {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--navy-900);
+    }
+
+    .admin-stat-card__sub {
+      font-size: 0.8rem;
+      color: var(--text-500);
+      margin-top: 2px;
+    }
+
+    /* Navigation Tabs */
+    .admin-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 16px;
+      border: 1px solid var(--admin-border);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .admin-tab {
+      padding: 11px 18px;
+      border-radius: 11px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-600);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .admin-tab:hover {
+      color: var(--navy-900);
+      background: var(--bg-ice);
+    }
+
+    .admin-tab.active {
+      background: var(--navy-900);
+      color: #ffffff;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .admin-tab__count {
+      font-size: 0.73rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 34, 70, 0.08);
+      color: inherit;
+    }
+
+    .admin-tab.active .admin-tab__count {
+      background: var(--red-600);
+      color: #ffffff;
+    }
+
+    .admin-panel {
+      display: none;
+    }
+
+    .admin-panel.active {
+      display: block;
+    }
+
+    /* Toolbar inside panel */
+    .admin-panel-header {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 18px;
+      padding: 22px 26px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .admin-panel-header__title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 4px;
+    }
+
+    .admin-panel-header__desc {
+      font-size: 0.9rem;
+      color: var(--text-600);
+    }
+
+    .admin-toolbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .admin-input,
+    .admin-select,
+    .admin-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 34, 70, 0.16);
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--text-900);
+      background: #ffffff;
+    }
+
+    .admin-input:focus,
+    .admin-select:focus,
+    .admin-textarea:focus {
+      outline: none;
+      border-color: var(--royal-700);
+      box-shadow: 0 0 0 3px rgba(9, 64, 128, 0.12);
+    }
+
+    /* Leaders Admin Grid */
+    .admin-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 18px;
+    }
+
+    .admin-item-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-xs);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .admin-item-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .admin-leader-top {
+      display: flex;
+      gap: 14px;
+      padding: 18px;
+      align-items: center;
+      border-bottom: 1px solid var(--admin-border);
+    }
+
+    .admin-leader-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 14px;
+      object-fit: cover;
+      object-position: top center;
+      background: var(--navy-900);
+      flex-shrink: 0;
+      border: 2px solid var(--bg-ice);
+    }
+
+    .admin-leader-meta {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .admin-leader-dept {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--red-600);
+      background: var(--blush-200);
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 5px;
+    }
+
+    .admin-leader-name {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .admin-leader-role {
+      font-size: 0.82rem;
+      color: var(--text-600);
+      font-weight: 600;
+    }
+
+    .admin-item-body {
+      padding: 14px 18px;
+      flex: 1;
+      font-size: 0.84rem;
+      color: var(--text-600);
+      line-height: 1.55;
+    }
+
+    .admin-item-footer {
+      padding: 12px 18px;
+      background: var(--bg-ice);
+      border-top: 1px solid var(--admin-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .admin-order-btns {
+      display: inline-flex;
+      gap: 4px;
+    }
+
+    .admin-icon-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--admin-border);
+      background: #ffffff;
+      color: var(--navy-900);
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .admin-icon-btn:hover:not(:disabled) {
+      background: var(--navy-900);
+      color: #ffffff;
+    }
+
+    .admin-icon-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* Gallery Admin Card */
+    .admin-gallery-thumb {
+      height: 185px;
+      background: var(--navy-900);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .admin-gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .admin-gallery-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10, 22, 47, 0.86);
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Settings & Guide Sections */
+    .admin-form-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .admin-form-card__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 6px;
+    }
+
+    .admin-form-card__sub {
+      font-size: 0.88rem;
+      color: var(--text-600);
+      margin-bottom: 20px;
+    }
+
+    .admin-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .admin-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .admin-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .admin-field label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy-900);
+    }
+
+    .admin-field small {
+      font-size: 0.76rem;
+      color: var(--text-500);
+    }
+
+    /* Editor Modal */
+    .admin-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(10, 22, 47, 0.72);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .admin-modal.open {
+      display: flex;
+    }
+
+    .admin-modal__dialog {
+      background: #ffffff;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(10, 22, 47, 0.35);
+      overflow: hidden;
+    }
+
+    .admin-modal__header {
+      padding: 20px 26px;
+      background: var(--navy-900);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .admin-modal__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .admin-modal__close {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .admin-modal__body {
+      padding: 24px 26px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .admin-modal__footer {
+      padding: 16px 26px;
+      background: var(--bg-ice);
+      border-top: 1px solid var(--admin-border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Image Upload Dropzone */
+    .admin-upload-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px;
+      border: 1.5px dashed rgba(9, 64, 128, 0.3);
+      border-radius: 14px;
+      background: var(--bg-ice);
+    }
+
+    .admin-upload-preview {
+      width: 76px;
+      height: 76px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: var(--navy-900);
+      flex-shrink: 0;
+      border: 1px solid var(--admin-border);
+    }
+
+    /* Toast Notification */
+    .admin-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 800;
+      background: var(--navy-900);
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: 14px;
+      box-shadow: 0 16px 36px rgba(10, 22, 47, 0.32);
+      border-left: 4px solid #10b981;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.25s ease;
+      max-width: 420px;
+    }
+
+    .admin-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Lock Overlay */
+    .admin-lock {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: linear-gradient(145deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--royal-800) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .admin-lock.unlocked {
+      display: none;
+    }
+
+    .admin-lock__card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 38px 34px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    .admin-lock__logo {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 14px;
+      object-fit: contain;
+    }
+
+    .admin-guide-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .admin-guide-step {
+      background: var(--bg-ice);
+      border: 1px solid var(--admin-border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .admin-guide-step__num {
+      display: inline-block;
+      background: var(--red-600);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .admin-guide-step h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 8px;
+    }
+
+    .admin-guide-step p {
+      font-size: 0.85rem;
+      color: var(--text-600);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .admin-Summary-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .admin-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .admin-Summary-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- Simple PIN Lock Screen so public visitors don't accidentally edit -->
+  <div class="admin-lock" id="admin-lock">
+    <div class="admin-lock__card">
+      <img src="assets/images/logo-icon.png" alt="C.E.O Foundation Emblem" class="admin-lock__logo" />
+      <h1 style="font-size: 1.35rem; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">C.E.O Foundation Admin</h1>
+      <p style="font-size: 0.88rem; color: var(--text-600); margin-bottom: 22px;">
+        Enter the Executive Admin Passcode to manage Leadership Profiles, Outreach Photos, and Organisation Settings.
+      </p>
+      <form id="admin-unlock-form" style="display: flex; flex-direction: column; gap: 12px;">
+        <input
+          type="password"
+          id="admin-pin-input"
+          class="admin-input"
+          placeholder="Enter Passcode (Default: ceo2026)"
+          style="text-align: center; font-weight: 700; letter-spacing: 0.08em;"
+          required
+        />
+        <p id="admin-pin-error" style="color: var(--red-600); font-size: 0.8rem; font-weight: 700; display: none;">
+          Incorrect passcode. Default passcode is: ceo2026
+        </p>
+        <button type="submit" class="admin-btn admin-btn--red" style="justify-content: center; padding: 12px;">
+          Unlock Admin Dashboard
+        </button>
+        <a href="index.html" style="font-size: 0.82rem; color: var(--text-500); text-decoration: none; margin-top: 6px;">
+          &larr; Return to Public Website
+        </a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Top Admin Header -->
+  <header class="admin-topbar">
+    <div class="container admin-topbar__inner">
+      <a href="index.html" class="admin-brand">
+        <img src="assets/images/logo-icon.png" alt="C.E.O Foundation Logo" />
+        <div>
+          <span class="admin-brand__title">C.E.O Foundation Admin Studio</span>
+          <span class="admin-brand__sub">No-Code Website &amp; Photo Manager</span>
+        </div>
+      </a>
+
+      <div class="admin-actions">
+        <div class="admin-status-pill" id="admin-status-pill">
+          <span class="admin-status-pill__dot"></span>
+          <span id="admin-status-text">All Changes Synced</span>
+        </div>
+        <a href="index.html" target="_blank" class="admin-btn admin-btn--ghost">
+          View Live Website &nearr;
+        </a>
+        <button type="button" class="admin-btn admin-btn--ghost" id="btn-export-data">
+          Download data.js
+        </button>
+        <button type="button" class="admin-btn admin-btn--red" id="btn-publish-changes">
+          Save &amp; Publish Changes
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="admin-shell">
+    <div class="container">
+
+      <!-- Quick Overview Metrics -->
+      <div class="admin-Summary-bar">
+        <div class="admin-stat-card">
+          <div class="admin-stat-card__label">Executive Leaders</div>
+          <div class="admin-stat-card__val" id="stat-leaders-count">15</div>
+          <div class="admin-stat-card__sub">Displayed on Leadership &amp; Home</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-card__label">Outreach Gallery Photos</div>
+          <div class="admin-stat-card__val" id="stat-gallery-count">18</div>
+          <div class="admin-stat-card__sub">Filterable field photography</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-card__label">Core Programs</div>
+          <div class="admin-stat-card__val" id="stat-programs-count">6</div>
+          <div class="admin-stat-card__sub">Active empowerment pillars</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-card__label">Publishing Mode</div>
+          <div class="admin-stat-card__val" id="stat-sync-mode" style="font-size: 1.15rem; padding-top: 6px;">Instant Browser + GitHub</div>
+          <div class="admin-stat-card__sub" id="stat-sync-sub">Zero-cost static CMS</div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="admin-tabs" role="tablist">
+        <button type="button" class="admin-tab active" data-tab="leaders">
+          <span>1. Executive Leadership</span>
+          <span class="admin-tab__count" id="tab-count-leaders">15</span>
+        </button>
+        <button type="button" class="admin-tab" data-tab="gallery">
+          <span>2. Outreach Photo Gallery</span>
+          <span class="admin-tab__count" id="tab-count-gallery">18</span>
+        </button>
+        <button type="button" class="admin-tab" data-tab="programs">
+          <span>3. Core Programs</span>
+          <span class="admin-tab__count" id="tab-count-programs">6</span>
+        </button>
+        <button type="button" class="admin-tab" data-tab="settings">
+          <span>4. Contacts &amp; M-Pesa Settings</span>
+        </button>
+        <button type="button" class="admin-tab" data-tab="cloud">
+          <span>5. Cloud Auto-Publish &amp; Handover Guide</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: EXECUTIVE LEADERSHIP MANAGER -->
+      <section class="admin-panel active" id="panel-leaders">
+        <div class="admin-panel-header">
+          <div>
+            <h2 class="admin-panel-header__title">Executive Leadership Directory</h2>
+            <p class="admin-panel-header__desc">
+              Add new leaders, update roles when committees transition, upload new portraits, or reorder how leaders appear on the website.
+            </p>
+          </div>
+          <div class="admin-toolbar-controls">
+            <input type="search" id="leader-admin-search" class="admin-input" placeholder="Search leader name or role..." style="width: 230px;" />
+            <button type="button" class="admin-btn admin-btn--red" id="btn-add-leader">
+              + Add New Leader
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-cards-grid" id="admin-leaders-grid"></div>
+      </section>
+
+      <!-- TAB 2: OUTREACH GALLERY MANAGER -->
+      <section class="admin-panel" id="panel-gallery">
+        <div class="admin-panel-header">
+          <div>
+            <h2 class="admin-panel-header__title">Outreach &amp; Field Photo Gallery</h2>
+            <p class="admin-panel-header__desc">
+              Upload new photos from children's home visits, mentorship sessions, and community drives. Photos are automatically compressed for fast mobile loading.
+            </p>
+          </div>
+          <div class="admin-toolbar-controls">
+            <select id="gallery-admin-filter" class="admin-select" style="width: 220px;">
+              <option value="All">All Categories</option>
+              <option value="welfare">Children's Welfare (welfare)</option>
+              <option value="feeding">Food Support (feeding)</option>
+              <option value="dignity">Essential Items / Dignity (dignity)</option>
+              <option value="mentorship">Youth Mentorship (mentorship)</option>
+            </select>
+            <button type="button" class="admin-btn admin-btn--red" id="btn-add-photo">
+              + Upload Outreach Photo
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-cards-grid" id="admin-gallery-grid"></div>
+      </section>
+
+      <!-- TAB 3: CORE PROGRAMS MANAGER -->
+      <section class="admin-panel" id="panel-programs">
+        <div class="admin-panel-header">
+          <div>
+            <h2 class="admin-panel-header__title">Core Empowerment Programs</h2>
+            <p class="admin-panel-header__desc">
+              Update program descriptions, key deliverables, or cover photos shown on the Home and Programs pages.
+            </p>
+          </div>
+          <div class="admin-toolbar-controls">
+            <button type="button" class="admin-btn admin-btn--red" id="btn-add-program">
+              + Add New Program
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-cards-grid" id="admin-programs-grid"></div>
+      </section>
+
+      <!-- TAB 4: ORGANISATION SETTINGS, CONTACTS & M-PESA -->
+      <section class="admin-panel" id="panel-settings">
+        <form id="admin-settings-form" class="admin-form-card">
+          <h3 class="admin-form-card__title">Organisation Contact, M-Pesa &amp; Registration Details</h3>
+          <p class="admin-form-card__sub">
+            Changes saved here automatically update the Header, Footer, WhatsApp Action Links, Membership Page, and Donate Page across all 6 pages.
+          </p>
+
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="cfg-name">Organisation Display Name</label>
+              <input type="text" id="cfg-name" class="admin-input" required />
+            </div>
+            <div class="admin-field">
+              <label for="cfg-legal">Full Legal Name</label>
+              <input type="text" id="cfg-legal" class="admin-input" required />
+            </div>
+            <div class="admin-field">
+              <label for="cfg-motto">Official Motto</label>
+              <input type="text" id="cfg-motto" class="admin-input" required />
+            </div>
+            <div class="admin-field">
+              <label for="cfg-tagline">Hero Tagline</label>
+              <input type="text" id="cfg-tagline" class="admin-input" required />
+            </div>
+            <div class="admin-field">
+              <label for="cfg-phone-display">Official Phone / WhatsApp (Display Format)</label>
+              <input type="text" id="cfg-phone-display" class="admin-input" placeholder="+254 116 257654" required />
+              <small>Shown on buttons, footer, and M-Pesa instructions.</small>
+            </div>
+            <div class="admin-field">
+              <label for="cfg-phone-raw">WhatsApp International Digits (No + or spaces)</label>
+              <input type="text" id="cfg-phone-raw" class="admin-input" placeholder="254116257654" required />
+              <small>Used for instant wa.me WhatsApp pledges &amp; membership forms.</small>
+            </div>
+            <div class="admin-field">
+              <label for="cfg-email">Official Email Address</label>
+              <input type="email" id="cfg-email" class="admin-input" required />
+            </div>
+            <div class="admin-field">
+              <label for="cfg-mpesa">M-Pesa Paybill / Buy Goods Till Number (Optional)</label>
+              <input type="text" id="cfg-mpesa" class="admin-input" placeholder="Leave blank if using direct M-Pesa phone line" />
+              <small>When added, the Donate page automatically displays this Paybill/Till.</small>
+            </div>
+            <div class="admin-field admin-field--full">
+              <label for="cfg-google-form">Google Form Registration Link (Optional)</label>
+              <input type="url" id="cfg-google-form" class="admin-input" placeholder="https://docs.google.com/forms/..." />
+              <small>Shown on the Membership page alongside the instant WhatsApp application form.</small>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end;">
+            <button type="submit" class="admin-btn admin-btn--red">
+              Save Organisation Settings
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- TAB 5: CLOUD AUTO-PUBLISH & HANDOVER GUIDE -->
+      <section class="admin-panel" id="panel-cloud">
+        <div class="admin-form-card">
+          <h3 class="admin-form-card__title">Zero-Cost Cloud Auto-Publish (GitHub + Cloudflare Pages / Netlify)</h3>
+          <p class="admin-form-card__sub">
+            Connect your free GitHub repository once below. Whenever a C.E.O Foundation admin clicks <strong>"Save &amp; Publish Changes"</strong>, this dashboard automatically uploads new photos and commits the updated <code>js/data.js</code> directly to GitHub, updating your live website in ~20 seconds at <strong>$0/month forever</strong>.
+          </p>
+
+          <form id="admin-github-form" class="admin-form-grid">
+            <div class="admin-field">
+              <label for="gh-repo">GitHub Repository (owner/repo)</label>
+              <input type="text" id="gh-repo" class="admin-input" placeholder="e.g. ceofoundation/website" />
+              <small>The free GitHub repository connected to Cloudflare Pages or Netlify.</small>
+            </div>
+            <div class="admin-field">
+              <label for="gh-branch">Branch Name</label>
+              <input type="text" id="gh-branch" class="admin-input" value="main" placeholder="main" />
+            </div>
+            <div class="admin-field admin-field--full">
+              <label for="gh-token">GitHub Personal Access Token (Fine-Grained Repo Contents Read/Write)</label>
+              <input type="password" id="gh-token" class="admin-input" placeholder="github_pat_..." />
+              <small>Stored securely in this browser. Create for free at GitHub &rarr; Settings &rarr; Developer Settings &rarr; Fine-grained tokens (grant "Contents: Read &amp; Write" on the website repo).</small>
+            </div>
+            <div class="admin-field">
+              <label for="cfg-admin-pin">Admin Dashboard Passcode</label>
+              <input type="text" id="cfg-admin-pin" class="admin-input" value="ceo2026" />
+              <small>Passcode required to unlock this Admin Studio (default: <code>ceo2026</code>).</small>
+            </div>
+            <div class="admin-field" style="justify-content: flex-end; align-items: flex-end;">
+              <button type="submit" class="admin-btn admin-btn--navy">
+                Save Cloud Sync Settings
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="admin-form-card">
+          <h3 class="admin-form-card__title">Handover &amp; Zero-Maintenance Guide for C.E.O Foundation</h3>
+          <p class="admin-form-card__sub">
+            Follow these 3 simple steps once to hand over the project so the organisation never has to touch code or pay monthly hosting fees:
+          </p>
+
+          <div class="admin-guide-steps">
+            <div class="admin-guide-step">
+              <span class="admin-guide-step__num">STEP 1 &bull; FREE HOSTING</span>
+              <h4>Push to GitHub &amp; Connect Cloudflare Pages or Netlify</h4>
+              <p>
+                Create a free GitHub account for C.E.O Foundation, upload this project folder to a repository, and connect it to <strong>Cloudflare Pages</strong> or <strong>Netlify</strong> (both 100% free forever with free SSL).
+              </p>
+            </div>
+            <div class="admin-guide-step">
+              <span class="admin-guide-step__num">STEP 2 &bull; CUSTOM DOMAIN</span>
+              <h4>Attach Their Custom Domain (~KSh 1,000/yr)</h4>
+              <p>
+                Register <code>ceofoundation.or.ke</code> (via Truehost/HostPinnacle with M-Pesa) or <code>ceofoundation.org</code> (via Cloudflare Registrar) and point its DNS to Cloudflare Pages or Netlify.
+              </p>
+            </div>
+            <div class="admin-guide-step">
+              <span class="admin-guide-step__num">STEP 3 &bull; EASY TEAM UPDATES</span>
+              <h4>Team Logs In at <code>/admin.html</code></h4>
+              <p>
+                Whenever leadership changes or new outreach photos are taken, the Publicity Director opens <code>/admin.html</code>, uploads the photo or edits a leader, and clicks <strong>Save &amp; Publish Changes</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--admin-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <strong style="color: var(--navy-900); font-size: 0.92rem;">Need to reset local browser preview to factory defaults?</strong>
+              <p style="font-size: 0.82rem; color: var(--text-500);">Restores the original 15 leaders and 18 outreach photos from the initial PDF profile.</p>
+            </div>
+            <button type="button" class="admin-btn admin-btn--danger" id="btn-reset-defaults">
+              Reset Local Draft to Defaults
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL: ADD / EDIT LEADER -->
+  <div class="admin-modal" id="modal-leader" aria-hidden="true">
+    <div class="admin-modal__dialog">
+      <div class="admin-modal__header">
+        <h3 class="admin-modal__title" id="modal-leader-title">Edit Executive Leader</h3>
+        <button type="button" class="admin-modal__close" data-close-modal="modal-leader">&times;</button>
+      </div>
+      <form id="form-leader" class="admin-modal__body">
+        <input type="hidden" id="leader-idx" />
+
+        <div class="admin-upload-box">
+          <img src="assets/images/logo-icon.png" alt="Leader preview" id="leader-photo-preview" class="admin-upload-preview" />
+          <div style="flex: 1;">
+            <label style="font-size: 0.84rem; font-weight: 800; color: var(--navy-900); display: block; margin-bottom: 4px;">
+              Leader Portrait Photo
+            </label>
+            <input type="file" id="leader-photo-file" accept="image/*" style="font-size: 0.8rem; margin-bottom: 6px;" />
+            <input type="text" id="leader-photo-path" class="admin-input" placeholder="Or image path: assets/images/leaders/..." style="font-size: 0.8rem; padding: 7px 10px;" />
+          </div>
+        </div>
+
+        <div class="admin-form-grid">
+          <div class="admin-field">
+            <label for="leader-name">Full Name *</label>
+            <input type="text" id="leader-name" class="admin-input" placeholder="e.g. Otieno Collins Junior" required />
+          </div>
+          <div class="admin-field">
+            <label for="leader-discipline">Academic Discipline / Specialty *</label>
+            <input type="text" id="leader-discipline" class="admin-input" placeholder="e.g. BSc. Economics • Public Speaker & Mentor" required />
+          </div>
+          <div class="admin-field">
+            <label for="leader-role">Full Official Role Title *</label>
+            <input type="text" id="leader-role" class="admin-input" placeholder="e.g. CEO, Founder & President" required />
+          </div>
+          <div class="admin-field">
+            <label for="leader-short-role">Short Badge Title *</label>
+            <input type="text" id="leader-short-role" class="admin-input" placeholder="e.g. Founder & President" required />
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="leader-creds">Academic &amp; Leadership Credentials (Comma-separated)</label>
+            <input type="text" id="leader-creds" class="admin-input" placeholder="e.g. BSc. Economics (in progress), Public Speaker, Mentor" />
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="leader-quote">Personal Signature Quote *</label>
+            <textarea id="leader-quote" class="admin-textarea" rows="2" required placeholder="Inspiring quote shown on their card and profile modal..."></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="leader-bio">About / Biography Paragraphs (One paragraph per line) *</label>
+            <textarea id="leader-bio" class="admin-textarea" rows="4" required placeholder="Write each biography paragraph on a new line..."></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="leader-resp">Executive Responsibilities (One bullet point per line)</label>
+            <textarea id="leader-resp" class="admin-textarea" rows="3" placeholder="Key role responsibilities..."></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="leader-strengths">Core Leadership Strengths (One bullet point per line)</label>
+            <textarea id="leader-strengths" class="admin-textarea" rows="3" placeholder="Core leadership strengths..."></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="leader-legacy">Legacy Statement (Optional)</label>
+            <textarea id="leader-legacy" class="admin-textarea" rows="2" placeholder="Optional closing legacy reflection..."></textarea>
+          </div>
+        </div>
+
+        <div class="admin-modal__footer" style="margin: 8px -26px -24px;">
+          <button type="button" class="admin-btn admin-btn--outline" data-close-modal="modal-leader">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn--red">Save Leader Profile</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT OUTREACH PHOTO -->
+  <div class="admin-modal" id="modal-photo" aria-hidden="true">
+    <div class="admin-modal__dialog">
+      <div class="admin-modal__header">
+        <h3 class="admin-modal__title" id="modal-photo-title">Upload Outreach Photo</h3>
+        <button type="button" class="admin-modal__close" data-close-modal="modal-photo">&times;</button>
+      </div>
+      <form id="form-photo" class="admin-modal__body">
+        <input type="hidden" id="photo-idx" />
+
+        <div class="admin-upload-box">
+          <img src="assets/images/logo-icon.png" alt="Outreach photo preview" id="photo-img-preview" class="admin-upload-preview" style="width: 110px; height: 82px;" />
+          <div style="flex: 1;">
+            <label style="font-size: 0.84rem; font-weight: 800; color: var(--navy-900); display: block; margin-bottom: 4px;">
+              Select Photo from Phone or Computer *
+            </label>
+            <input type="file" id="photo-img-file" accept="image/*" style="font-size: 0.8rem; margin-bottom: 6px;" />
+            <input type="text" id="photo-img-path" class="admin-input" placeholder="Or image path: assets/images/outreach/..." style="font-size: 0.8rem; padding: 7px 10px;" required />
+            <small style="display: block; margin-top: 4px; color: var(--text-500);">Photos are automatically resized &amp; optimized for fast loading.</small>
+          </div>
+        </div>
+
+        <div class="admin-form-grid">
+          <div class="admin-field">
+            <label for="photo-title">Photo Title *</label>
+            <input type="text" id="photo-title" class="admin-input" placeholder="e.g. Children's Home Visit in Kisumu" required />
+          </div>
+          <div class="admin-field">
+            <label for="photo-category">Filter Category *</label>
+            <select id="photo-category" class="admin-select" required>
+              <option value="welfare">Children's Welfare</option>
+              <option value="feeding">Food &amp; Meal Support</option>
+              <option value="dignity">Girl-Child Dignity &amp; Hygiene</option>
+              <option value="mentorship">Youth Mentorship &amp; Field Team</option>
+            </select>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="photo-caption">Story / Caption *</label>
+            <textarea id="photo-caption" class="admin-textarea" rows="3" placeholder="Describe what happened during this outreach moment..." required></textarea>
+          </div>
+        </div>
+
+        <div class="admin-modal__footer" style="margin: 8px -26px -24px;">
+          <button type="button" class="admin-btn admin-btn--outline" data-close-modal="modal-photo">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn--red">Save Outreach Photo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT CORE PROGRAM -->
+  <div class="admin-modal" id="modal-program" aria-hidden="true">
+    <div class="admin-modal__dialog">
+      <div class="admin-modal__header">
+        <h3 class="admin-modal__title" id="modal-program-title">Edit Core Program</h3>
+        <button type="button" class="admin-modal__close" data-close-modal="modal-program">&times;</button>
+      </div>
+      <form id="form-program" class="admin-modal__body">
+        <input type="hidden" id="program-idx" />
+
+        <div class="admin-upload-box">
+          <img src="assets/images/logo-icon.png" alt="Program cover preview" id="program-img-preview" class="admin-upload-preview" style="width: 110px; height: 82px;" />
+          <div style="flex: 1;">
+            <label style="font-size: 0.84rem; font-weight: 800; color: var(--navy-900); display: block; margin-bottom: 4px;">
+              Program Cover Photo
+            </label>
+            <input type="file" id="program-img-file" accept="image/*" style="font-size: 0.8rem; margin-bottom: 6px;" />
+            <input type="text" id="program-img-path" class="admin-input" placeholder="assets/images/outreach/..." style="font-size: 0.8rem; padding: 7px 10px;" required />
+          </div>
+        </div>
+
+        <div class="admin-form-grid">
+          <div class="admin-field">
+            <label for="program-title">Program Title *</label>
+            <input type="text" id="program-title" class="admin-input" required />
+          </div>
+          <div class="admin-field">
+            <label for="program-tag">Category Badge Tag *</label>
+            <input type="text" id="program-tag" class="admin-input" placeholder="e.g. Pillar 01 • Mentorship" required />
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="program-desc">Program Description *</label>
+            <textarea id="program-desc" class="admin-textarea" rows="3" required></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="program-outcomes">Key Outcomes (One bullet point per line) *</label>
+            <textarea id="program-outcomes" class="admin-textarea" rows="4" required></textarea>
+          </div>
+        </div>
+
+        <div class="admin-modal__footer" style="margin: 8px -26px -24px;">
+          <button type="button" class="admin-btn admin-btn--outline" data-close-modal="modal-program">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn--red">Save Program</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
