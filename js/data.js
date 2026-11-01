@@ -1,7 +1,7 @@
 /**
  * C.E.O Foundation (Centre of Empowerment Organisation)
  * Central Configuration & Content Data Store
- * Updated via C.E.O Foundation Admin Studio (2026-11-01T21:58:23.968Z)
+ * Updated via C.E.O Foundation Admin Studio (2026-11-01T22:00:36.997Z)
  */
 
 window.CEO_CONFIG = {
@@ -27,7 +27,7 @@ window.CEO_CONFIG = {
   "socialHandle": "@CEO Foundation",
   "social": {
     "facebook": "",
-    "instagram": "",
+    "instagram": "https://www.instagram.com/_ceo_foundation_.254/",
     "tiktok": "",
     "x": "",
     "linkedin": "",
