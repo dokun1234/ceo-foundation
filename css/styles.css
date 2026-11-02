@@ -289,29 +289,32 @@ ul {
 }
 
 .btn--navy {
-  background: var(--navy-900);
+  background: #0f172a;
   color: #ffffff;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
 }
 
 .btn--navy:hover {
-  background: var(--royal-700);
+  background: var(--red-600);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(233, 33, 43, 0.4);
 }
 
 .btn--outline-white {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(8px);
+  background: #ffffff;
+  color: #0b1320;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  font-weight: 700;
 }
 
 .btn--outline-white:hover {
-  background: #ffffff;
-  color: var(--navy-900);
-  border-color: #ffffff;
+  background: #f1f5f9;
+  color: var(--red-600);
+  border-color: #f1f5f9;
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
 }
 
 .btn--outline {
@@ -553,8 +556,7 @@ ul {
 .mobile-drawer__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 14, 31, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(10, 16, 26, 0.75);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -656,17 +658,17 @@ ul {
   inset: 0;
   background: linear-gradient(
     102deg,
-    rgba(6, 14, 31, 0.94) 0%,
-    rgba(10, 22, 47, 0.86) 46%,
-    rgba(10, 22, 47, 0.54) 78%,
-    rgba(10, 22, 47, 0.42) 100%
+    rgba(12, 18, 30, 0.92) 0%,
+    rgba(15, 23, 42, 0.80) 48%,
+    rgba(15, 23, 42, 0.50) 80%,
+    rgba(15, 23, 42, 0.35) 100%
   );
 }
 
 .hero__overlay-bottom {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(6, 14, 31, 0.95) 0%, transparent 38%);
+  background: linear-gradient(to top, rgba(12, 18, 30, 0.94) 0%, transparent 35%);
 }
 
 .hero__content {
@@ -738,12 +740,13 @@ ul {
 }
 
 .hero__pill {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(9, 64, 128, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 5px 13px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 6px 14px;
   border-radius: var(--radius-full);
 }
 
@@ -755,13 +758,11 @@ ul {
 
 /* Floating Hero Spotlight Card */
 .hero__card {
-  background: rgba(10, 22, 47, 0.76);
+  background: #111a2c;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: var(--radius-xl);
-  padding: 30px;
-  box-shadow: var(--shadow-xl);
+  padding: 28px;
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.5);
   max-width: 410px;
   justify-self: end;
 }
@@ -837,8 +838,7 @@ ul {
   position: relative;
   z-index: 2;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(6, 14, 31, 0.78);
-  backdrop-filter: blur(12px);
+  background: #0d1522;
   padding: 26px 0;
 }
 
@@ -903,7 +903,7 @@ ul {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: linear-gradient(160deg, var(--navy-900), var(--royal-700));
+  background: #0d1522;
   box-shadow: var(--shadow-xl);
   aspect-ratio: 4 / 4.7;
 }
@@ -919,7 +919,7 @@ ul {
   position: absolute;
   inset: auto 0 0 0;
   padding: 28px 26px 24px;
-  background: linear-gradient(to top, rgba(6, 14, 31, 0.95) 0%, rgba(6, 14, 31, 0.65) 65%, transparent 100%);
+  background: linear-gradient(to top, rgba(12, 18, 30, 0.95) 0%, rgba(12, 18, 30, 0.65) 65%, transparent 100%);
   color: #ffffff;
 }
 
@@ -1079,13 +1079,13 @@ ul {
   position: absolute;
   bottom: 14px;
   left: 14px;
-  background: rgba(10, 22, 47, 0.85);
+  background: #0d1522;
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 700;
   padding: 6px 14px;
   border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .vm-stack {
@@ -1457,7 +1457,7 @@ ul {
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(10, 22, 47, 0.84);
+  background: #0d1522;
   color: #ffffff;
   font-size: 0.72rem;
   font-weight: 800;
@@ -1465,7 +1465,7 @@ ul {
   text-transform: uppercase;
   padding: 5px 12px;
   border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .program-card__body {
@@ -1517,7 +1517,9 @@ ul {
 /* Mental Health Safe Space Callout */
 .wellbeing-callout {
   margin-top: 48px;
-  background: linear-gradient(125deg, var(--royal-700) 0%, var(--navy-900) 100%);
+  background: #0d1522;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid var(--red-600);
   border-radius: var(--radius-xl);
   padding: 36px 40px;
   color: #ffffff;
@@ -1629,7 +1631,7 @@ ul {
 .gallery-item__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(6, 14, 31, 0.92) 0%, rgba(6, 14, 31, 0.35) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(12, 18, 30, 0.94) 0%, rgba(12, 18, 30, 0.35) 50%, transparent 100%);
   padding: 22px;
   display: flex;
   flex-direction: column;
@@ -1754,13 +1756,13 @@ ul {
 .leader-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(9, 64, 128, 0.3);
+  border-color: var(--red-600);
 }
 
 .leader-card__portrait {
   position: relative;
   height: 290px;
-  background: linear-gradient(150deg, var(--navy-900) 0%, var(--royal-700) 100%);
+  background: #0d1522;
   overflow: hidden;
 }
 
@@ -1783,7 +1785,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 30% 20%, var(--royal-600), var(--navy-900) 75%);
+  background: #111a2c;
   color: #ffffff;
   position: relative;
 }
@@ -2557,8 +2559,7 @@ ul {
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 14, 31, 0.78);
-  backdrop-filter: blur(8px);
+  background: rgba(10, 16, 26, 0.82);
 }
 
 .leader-modal__dialog {
@@ -3200,11 +3201,11 @@ ul {
 /* Unified Inner-Page Hero Header (Shared across About, Programs, Leadership, Membership, Donate) */
 .page-hero {
   position: relative;
-  background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 58%, var(--royal-700) 100%);
+  background: #0d1522;
   color: #ffffff;
-  padding: 72px 0 68px;
+  padding: 68px 0 64px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 3px solid var(--red-600);
 }
 
 .page-hero__bg {
@@ -3228,9 +3229,9 @@ ul {
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(6, 14, 31, 0.95) 0%,
-    rgba(10, 22, 47, 0.88) 54%,
-    rgba(9, 64, 128, 0.72) 100%
+    rgba(10, 16, 26, 0.94) 0%,
+    rgba(13, 21, 34, 0.86) 54%,
+    rgba(15, 23, 42, 0.60) 100%
   );
 }
 
@@ -3309,13 +3310,11 @@ ul {
 }
 
 .page-hero__aside {
-  background: rgba(10, 22, 47, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #141f33;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-xl);
   padding: 26px 28px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
 .page-hero__aside-label {
@@ -3503,13 +3502,13 @@ ul {
 }
 
 .sc-approach-card--coral {
-  background: linear-gradient(155deg, rgba(216, 107, 114, 0.24) 0%, rgba(15, 29, 58, 0.92) 100%);
-  border-color: rgba(241, 203, 208, 0.3);
+  background: #151e2f;
+  border-color: rgba(216, 107, 114, 0.35);
 }
 
 .sc-approach-card--red {
-  background: linear-gradient(155deg, rgba(233, 33, 43, 0.26) 0%, rgba(15, 29, 58, 0.94) 100%);
-  border-color: rgba(233, 33, 43, 0.42);
+  background: #181f2f;
+  border-color: rgba(233, 33, 43, 0.45);
 }
 
 .sc-approach-card__meta {
@@ -3618,7 +3617,7 @@ ul {
   position: absolute;
   inset: auto 0 0 0;
   padding: 24px 22px 16px;
-  background: linear-gradient(to top, rgba(6, 14, 31, 0.82) 0%, rgba(6, 14, 31, 0.3) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(12, 18, 30, 0.9) 0%, rgba(12, 18, 30, 0.3) 60%, transparent 100%);
   color: #ffffff;
 }
 
@@ -3673,7 +3672,8 @@ ul {
 }
 
 .dual-cta-card--navy {
-  background: linear-gradient(145deg, var(--navy-950) 0%, var(--royal-700) 100%);
+  background: #0d1522;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
 
@@ -3981,10 +3981,9 @@ ul {
   .sc-approach__caption {
     inset: 12px auto auto 12px;
     padding: 5px 12px;
-    background: rgba(6, 14, 31, 0.78);
-    backdrop-filter: blur(8px);
+    background: #0d1522;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   }
   .sc-approach__caption-tag {
@@ -4196,4 +4195,227 @@ ul {
 }
 .footer__social-btn--youtube:hover {
   box-shadow: 0 8px 24px rgba(255, 0, 0, 0.7);
+}
+
+
+
+/* ==========================================================================
+   Comprehensive Mobile Perfection (Cards, Buttons, Typography, Spacing)
+   Client-Directed: Padded, Marginized, Finger-Friendly Touch Targets
+   ========================================================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px !important;
+  }
+
+  .section {
+    padding: 56px 0 !important;
+  }
+
+  /* Typography on Mobile */
+  .hero__title {
+    font-size: clamp(1.85rem, 7vw, 2.35rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .page-hero__title {
+    font-size: clamp(1.75rem, 6.2vw, 2.2rem) !important;
+    line-height: 1.22 !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.48rem, 5.2vw, 1.95rem) !important;
+    line-height: 1.24 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-subtitle,
+  .section-desc {
+    font-size: 0.96rem !important;
+    line-height: 1.62 !important;
+    margin-bottom: 26px !important;
+  }
+
+  .hero__desc,
+  .page-hero__desc {
+    font-size: 0.96rem !important;
+    line-height: 1.62 !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Mobile Button Stacking & Thumb-Friendly Ergonomics */
+  .hero__actions,
+  .page-hero__actions,
+  .dual-cta-card__actions,
+  .card-actions,
+  .modal-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hero__actions .btn,
+  .page-hero__actions .btn,
+  .dual-cta-card__actions .btn,
+  .card-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 50px !important;
+    font-size: 0.98rem !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+  }
+
+  /* Card Marginizing & Paddingizing across All 6 Pages */
+  .leader-card {
+    padding: 24px 20px !important;
+    margin-bottom: 22px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07) !important;
+  }
+
+  .leader-card__photo-wrap {
+    margin-bottom: 18px !important;
+    border-radius: 14px !important;
+  }
+
+  .leader-card__name {
+    font-size: 1.28rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .leader-card__role {
+    font-size: 0.84rem !important;
+    margin-bottom: 14px !important;
+  }
+
+  .leader-card__bio {
+    font-size: 0.94rem !important;
+    line-height: 1.62 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .leader-card .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+  }
+
+  .program-card {
+    padding: 24px 20px !important;
+    margin-bottom: 24px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07) !important;
+  }
+
+  .program-card__img-wrap {
+    border-radius: 14px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .program-card__title {
+    font-size: 1.25rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .program-card__desc {
+    font-size: 0.94rem !important;
+    line-height: 1.62 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .value-card {
+    padding: 24px 20px !important;
+    margin-bottom: 18px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .value-card__icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .value-card__title {
+    font-size: 1.22rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .value-card__text {
+    font-size: 0.94rem !important;
+    line-height: 1.62 !important;
+  }
+
+  .donate-tier-card {
+    padding: 26px 20px !important;
+    margin-bottom: 20px !important;
+    border-radius: 20px !important;
+  }
+
+  .donate-tier-card .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+  }
+
+  .inkind-card {
+    padding: 22px 18px !important;
+    margin-bottom: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .form-card,
+  .calculator-card,
+  .channels-card {
+    padding: 26px 20px !important;
+    margin-bottom: 24px !important;
+    border-radius: 22px !important;
+  }
+
+  .dual-cta-card {
+    padding: 30px 22px !important;
+    margin-bottom: 22px !important;
+    border-radius: 22px !important;
+  }
+
+  .dual-cta-card .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+  }
+
+  /* Admin Studio Mobile Navigation & Cards */
+  .admin-tabs {
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-bottom: 8px !important;
+    gap: 8px !important;
+  }
+
+  .admin-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .admin-tab {
+    flex-shrink: 0 !important;
+    padding: 10px 16px !important;
+    font-size: 0.88rem !important;
+  }
+
+  .admin-item-card {
+    padding: 20px 16px !important;
+    margin-bottom: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .admin-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-input,
+  .admin-select {
+    min-height: 48px !important;
+    font-size: 1rem !important;
+  }
 }

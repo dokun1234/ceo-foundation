@@ -47,10 +47,10 @@ window.CEO_DATA = {
     "role": "CEO, Founder & President",
     "lead": "Having journeyed through childhood challenges and experienced the strength and resilience that come with being raised by a widowed mother, I have transformed my past into purpose.",
     "paragraphs": [
-      "Today, I have taken up the mantle to stand for children facing difficult circumstances, uplift the needy, and become a beacon of hope in our great nation.",
+      "Today, I have dedicated my life to standing with children facing hardship, supporting vulnerable families, and building lasting opportunity across our communities in Kenya.",
       "Through the Centre of Empowerment Organisation Foundation, I am committed to creating opportunities where there are none, restoring dignity where it has been lost, and empowering individuals to realise their potential and build a brighter future.",
       "I believe that every child deserves a chance to dream, every individual deserves an opportunity to thrive, and every community deserves the opportunity to grow.",
-      "This is more than an organisation. It is my mission, my calling, and my lifelong contribution to humanity.",
+      "This work is my calling, my responsibility, and my lifelong contribution to our people.",
       "With faith, resilience, and a heart committed to service, I believe that together, we can transform lives, restore hope, and create a future where no one is left behind."
     ],
     "annotations": [
@@ -80,7 +80,7 @@ window.CEO_DATA = {
         "phrase": "create a future where no one is left behind",
         "valueId": "inclusivity",
         "valueTitle": "Values VI & VII: Inclusivity & Teamwork",
-        "note": "Uniting diverse backgrounds and collective effort so small acts catalyse lasting change."
+        "note": "Uniting diverse backgrounds and collective effort so direct community action creates lasting impact."
       }
     ]
   },
@@ -196,7 +196,7 @@ window.CEO_DATA = {
       "stage": "IMPACT",
       "accent": "red",
       "subtitle": "Transformed Communities",
-      "description": "Through consistent learning, leadership and service, members catalyse sustainable social change, creating empowered people and thriving communities.",
+      "description": "Through consistent learning, mentorship, and service, members drive sustainable change across schools, children's homes, and local neighborhoods.",
       "highlights": [
         "Restored dignity & hope",
         "Empowered youth network",
@@ -299,7 +299,7 @@ window.CEO_DATA = {
       "category": "mentorship",
       "tierId": "tier-mentorship",
       "title": "Education, Skills & Networking",
-      "description": "We foster continuous learning through discussions, skills-building workshops and purposeful networking where young changemakers connect and grow together.",
+      "description": "We run practical discussions, skills-building workshops, and purposeful networking sessions where young Kenyans connect, learn, and grow together.",
       "tag": "Core Pillar 06",
       "image": "assets/images/outreach/shared-care-meal.webp",
       "imageW": 691,
@@ -459,7 +459,7 @@ window.CEO_DATA = {
       ],
       "responsibilities": [
         "Overseeing the organisation's general progress towards its strategic and community goals.",
-        "Linking the Executive team with non-executive members to foster unity and shared accountability.",
+        "Connecting the Executive team with members to maintain clear unity and direct accountability.",
         "Ensuring the organisation's vision is translated consistently into practical action."
       ],
       "strengths": [
@@ -523,16 +523,16 @@ window.CEO_DATA = {
         "Operations Leader",
         "Social Impact Advocate"
       ],
-      "quote": "A vibrant leader with passion in mentorship, mental health awareness, and child protection. My vision is to see a country where children are loved right, cared for, and their interests are a priority.",
+      "quote": "A dedicated youth advocate with passion in mentorship, mental health awareness, and child protection. My vision is to see a country where children are loved right, cared for, and their interests are a priority.",
       "philosophy": "Putting children's wellbeing, member care, and operational excellence at the heart of every outreach.",
       "about": [
-        "I am Samona Gabriel (Gabriel Ongera), a vibrant leader with deep passion in youth mentorship, mental health awareness, and child protection.",
+        "I am Samona Gabriel (Gabriel Ongera), a dedicated field leader with deep passion in youth mentorship, mental health awareness, and child protection.",
         "My vision is to see a country where children are loved right, cared for, and their best interests are treated as a top priority."
       ],
       "responsibilities": [
         "Welcome, orient, and induct new members into the C.E.O Foundation community.",
         "Coordinate field logistics and operations to ensure every outreach and event is a success.",
-        "Maintain seamless communication between the Vice President, leadership team, and members.",
+        "Maintain clear, direct communication between the Vice President, leadership team, and field volunteers.",
         "Support the Finance Director on member contributions and actively check on member wellbeing."
       ],
       "strengths": [
@@ -597,7 +597,7 @@ window.CEO_DATA = {
       ],
       "responsibilities": [
         "Ensure the core culture, values, and heritage of C.E.O Foundation are maintained and preserved at all times.",
-        "Foster a respectful, disciplined, and supportive environment across all membership activities."
+        "Build a respectful, disciplined, and supportive environment across all community drives and meetings."
       ],
       "strengths": [
         "Unwavering transparency in leadership and service",
@@ -683,7 +683,7 @@ window.CEO_DATA = {
       "quote": "Connecting hearts, networks, and communities so nobody walks the journey of growth alone.",
       "philosophy": "Lasting community transformation thrives on trust, fellowship, and inclusive bridges.",
       "about": [
-        "Shexxa serves as Bridge Builder at C.E.O Organisation, fostering meaningful connections across members, youth chapters, partner institutions, and local communities."
+        "Shexxa coordinates outreach relationships at C.E.O Organisation, connecting member volunteers with children's homes, schools, and community partners."
       ],
       "responsibilities": [
         "Cultivate relationships between members, mentors, partner schools, children's homes, and community supporters.",
